@@ -1,10 +1,11 @@
 package prjgas.Fronteiras;
 
+import javax.swing.table.DefaultTableModel;
 import prjgas.Modelo.Salario;
 import prjgas.Persisitencias.PerSalario;
 
 public class FrmCadastroSalario extends javax.swing.JInternalFrame {
-
+DefaultTableModel vTabelaSalario=new DefaultTableModel();
     public FrmCadastroSalario() {
         initComponents();
     }
@@ -25,7 +26,7 @@ public class FrmCadastroSalario extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSalario = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -84,8 +85,8 @@ public class FrmCadastroSalario extends javax.swing.JInternalFrame {
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(200, 70, 320, 30);
 
-        jTable1.setModel(vTabelaSalario);
-        jScrollPane1.setViewportView(jTable1);
+        tblSalario.setModel(vTabelaSalario);
+        jScrollPane1.setViewportView(tblSalario);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(110, 120, 450, 240);
@@ -112,7 +113,7 @@ public class FrmCadastroSalario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblSalario;
     private javax.swing.JTextField txtdtInicioVigencia;
     private javax.swing.JTextField txtdtTerminoVigencia;
     private javax.swing.JTextField txtvlSalario;

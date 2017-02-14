@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import prjgas.Modelo.Funcionario;
 import prjgas.Persisitencias.PerFuncionario;
-import sun.misc.Perf;
+
 
 public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
  DefaultTableModel vTabelaSalario = new DefaultTableModel();
@@ -21,7 +21,7 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
          vTabelaSalario.addColumn("Data Início");
          vTabelaSalario.addColumn("Data Término");
          
-         idFuncionario.setVisible(false);
+         txtidFuncionario.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -39,10 +39,11 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFuncionario = new javax.swing.JTable();
         bttSalvar = new javax.swing.JButton();
-        idFuncionario = new javax.swing.JTextField();
+        txtidFuncionario = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
+        setPreferredSize(new java.awt.Dimension(900, 600));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -134,33 +135,37 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
         getContentPane().add(bttSalvar);
         bttSalvar.setBounds(230, 150, 170, 39);
 
-        idFuncionario.setText("jTextField1");
-        getContentPane().add(idFuncionario);
-        idFuncionario.setBounds(720, 180, 59, 20);
+        txtidFuncionario.setAutoscrolls(false);
+        getContentPane().add(txtidFuncionario);
+        txtidFuncionario.setBounds(720, 180, 6, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttNovoActionPerformed
-        txtnmFuncionario.setText("");
-        txtnmCargoFuncinario.setText("");
+        Limpar();
+        
     }//GEN-LAST:event_bttNovoActionPerformed
 
     private void bttSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSalvarActionPerformed
         Funcionario funcionario = new Funcionario();
         PerFuncionario perFuncionario = new PerFuncionario();
-        if (idFuncionario.getText().length() == 0) {
+        if (txtidFuncionario.getText().length() == 0) {
             funcionario.setnmFuncionario(txtnmFuncionario.getText());
             funcionario.setnmCargoFuncionario(txtnmCargoFuncinario.getText());
             perFuncionario.inserirFuncionario(funcionario);
+            Limpar();
         } else {
-            funcionario.setidFuncionario(Integer.parseInt(idFuncionario.getText()));
+            funcionario.setidFuncionario(Integer.parseInt(txtidFuncionario.getText()));
             funcionario.setnmFuncionario(txtnmFuncionario.getText());
             funcionario.setnmCargoFuncionario(txtnmCargoFuncinario.getText());
+            
             perFuncionario.AlterarFuncionario(funcionario);
+            this.getParent(); 
             
-            
+            Limpar();
         }
+        PreencherTabelaFuncionario();
     }//GEN-LAST:event_bttSalvarActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
@@ -170,18 +175,19 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void tblFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFuncionarioMouseClicked
-          txtnmFuncionario.setText(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 1).toString());
-          txtnmCargoFuncinario.setText(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 2).toString()); 
-          idFuncionario.setText(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 3).toString()); 
+          txtnmFuncionario.setText(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 0).toString());
+          txtnmCargoFuncinario.setText(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 1).toString()); 
+          txtidFuncionario.setText(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 2).toString()); 
     }//GEN-LAST:event_tblFuncionarioMouseClicked
 
     private void bttDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDeletarActionPerformed
         PerFuncionario perFuncionario= new PerFuncionario();    
-        int codFuncionario = Integer.parseInt(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 0) + "");
-        perFuncionario.deletarFuncionario(codFuncionario);
+        int idFuncionario = Integer.parseInt(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 2) + "");
+        perFuncionario.deletarFuncionario(idFuncionario);
         PreencherTabelaFuncionario();  
         
         JOptionPane.showMessageDialog(this, "Registro deletado com sucesso!");
+        Limpar();
     }//GEN-LAST:event_bttDeletarActionPerformed
 
 
@@ -189,25 +195,29 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JButton bttDeletar;
     private javax.swing.JButton bttNovo;
     private javax.swing.JButton bttSalvar;
-    private javax.swing.JTextField idFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblFuncionario;
+    private javax.swing.JTextField txtidFuncionario;
     private javax.swing.JTextField txtnmCargoFuncinario;
     private javax.swing.JTextField txtnmFuncionario;
     // End of variables declaration//GEN-END:variables
 
     private void PreencherTabelaFuncionario() {
-        vTabelaFuncionario=(DefaultTableModel)tblFuncionario.getModel();// Aplicar Conversão
-       int t=vTabelaFuncionario.getRowCount();
+     //   vTabelaFuncionario=(DefaultTableModel)tblFuncionario.getModel();// Aplicar Conversão
+       //int t=vTabelaFuncionario.getRowCount();
        
-       for(int i=0;i<t;i++){
-           vTabelaFuncionario.removeRow(i);
-       }
+ 
        
+      // for(int i=0;i<t;i++){
+         //  vTabelaFuncionario.removeRow(i);
+     //  }
+       
+       
+       vTabelaFuncionario.setRowCount(0);
        PerFuncionario perFuncionario=new PerFuncionario();
        ArrayList<Funcionario> classeFuncionario= perFuncionario.TodosFuncionarios();
        
@@ -217,8 +227,14 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
            
            linha[0]=f.getnmFuncionario();
            linha[1]=f.getnmCargoFuncionario();
-           
+           linha[2]=String.valueOf(f.getidFuncionario());
               vTabelaFuncionario.addRow(linha);
        }
+    }
+
+    private void Limpar() {
+        txtnmFuncionario.setText("");
+        txtnmCargoFuncinario.setText("");
+        txtidFuncionario.setText("");
     }
 }

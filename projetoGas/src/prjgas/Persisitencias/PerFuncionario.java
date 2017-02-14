@@ -12,7 +12,7 @@ import prjgas.Modelo.Funcionario;
 
 public class PerFuncionario {
      public boolean inserirFuncionario(Funcionario funci){
-        String SQL="insert into tbFuncionario(nmFuncionario,nmCargoFuncionario,idSalario) values (?,?,?)"; 
+        String SQL="insert into tbFuncionario(nmFuncionario,nmCargoFuncionario) values (?,?)"; 
         Connection conn=null;
         PreparedStatement pst=null;
         
@@ -23,7 +23,7 @@ public class PerFuncionario {
             
             pst.setString(1,funci.getnmFuncionario());
             pst.setString(2,funci.getnmCargoFuncionario());
-             pst.setInt(3,funci.getidSalario());
+           // pst.setInt(3,funci.getidSalario());
           
             pst.executeUpdate();// executa no banco de dados
             return true;
@@ -43,8 +43,9 @@ public class PerFuncionario {
             ArrayList clsmodel = new ArrayList();
             while (rs.next()) {
                 Funcionario model = new Funcionario();
-                model.setnmFuncionario(rs.getString(1));
-                model.setnmCargoFuncionario(rs.getString(2));
+                model.setidFuncionario(rs.getInt(1));
+                model.setnmFuncionario(rs.getString(2));
+                model.setnmCargoFuncionario(rs.getString(3));
                 clsmodel.add(model);
             }
             con.close();
@@ -81,6 +82,7 @@ public class PerFuncionario {
             pst = conn.prepareStatement(SQL);
             pst.setString(1,funcionario.getnmFuncionario());
             pst.setString(2, funcionario.getnmCargoFuncionario());
+            pst.setInt(3,funcionario.getidFuncionario());
             pst.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro na conexão ao alterar: " + e.getMessage(), "ERRO", 0);
