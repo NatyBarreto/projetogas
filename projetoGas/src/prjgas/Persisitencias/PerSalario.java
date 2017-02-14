@@ -1,8 +1,9 @@
 package prjgas.Persisitencias;
 
-import Modelo.Conexao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import prjgas.Modelo.Conexao;
 import prjgas.Modelo.Salario;
 
 public class PerSalario {
