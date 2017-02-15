@@ -124,7 +124,7 @@ public class MDI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioActionPerformed
-        FrmCadastroFuncionario funcionario=new FrmCadastroFuncionario();
+        FrmFuncionario funcionario=new FrmFuncionario();
         painel.add(funcionario);
         funcionario.show();
         
@@ -137,7 +137,7 @@ public class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_ProdutoActionPerformed
 
     private void SalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalarioActionPerformed
-        FrmCadastroSalario salario=new FrmCadastroSalario();
+        FrmSalario salario=new FrmSalario();
         painel.add(salario);
         salario.show();
     }//GEN-LAST:event_SalarioActionPerformed

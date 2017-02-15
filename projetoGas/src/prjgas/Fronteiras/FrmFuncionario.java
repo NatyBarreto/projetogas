@@ -8,19 +8,15 @@ import prjgas.Modelo.Funcionario;
 import prjgas.Persisitencias.PerFuncionario;
 
 
-public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
- DefaultTableModel vTabelaSalario = new DefaultTableModel();
+public class FrmFuncionario extends javax.swing.JInternalFrame {
  DefaultTableModel vTabelaFuncionario = new DefaultTableModel();
-    public FrmCadastroFuncionario() {
+    public FrmFuncionario() {
         initComponents();
          vTabelaFuncionario.addColumn("Nome");
          vTabelaFuncionario.addColumn("Cargo");
          vTabelaFuncionario.addColumn("idFuncionario");
          
-         vTabelaSalario.addColumn("Salario");
-         vTabelaSalario.addColumn("Data Início");
-         vTabelaSalario.addColumn("Data Término");
-         
+                
          txtidFuncionario.setVisible(false);
     }
 
@@ -76,9 +72,9 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Nome:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(10, 70, 89, 37);
+        jLabel16.setBounds(0, 80, 89, 37);
         getContentPane().add(txtnmFuncionario);
-        txtnmFuncionario.setBounds(90, 80, 330, 30);
+        txtnmFuncionario.setBounds(10, 110, 430, 30);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttDeletar.setText("DELETAR");
@@ -90,7 +86,7 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
         getContentPane().add(bttDeletar);
         bttDeletar.setBounds(680, 450, 150, 39);
         getContentPane().add(txtnmCargoFuncinario);
-        txtnmCargoFuncinario.setBounds(560, 80, 276, 30);
+        txtnmCargoFuncinario.setBounds(480, 110, 350, 30);
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -112,7 +108,7 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(450, 150, 150, 39);
+        bttNovo.setBounds(460, 150, 150, 39);
 
         tblFuncionario.setModel(vTabelaFuncionario);
         tblFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,7 +129,7 @@ public class FrmCadastroFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(230, 150, 170, 39);
+        bttSalvar.setBounds(250, 150, 170, 39);
 
         txtidFuncionario.setAutoscrolls(false);
         getContentPane().add(txtidFuncionario);

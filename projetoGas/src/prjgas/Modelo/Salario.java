@@ -4,6 +4,7 @@ public class Salario {
    String dtInicioVigencia ,
           dtTerminoVigencia;        
    double vlSalario;
+   int idSalario;
  
     
     public String getdtInicioVigencia() {
@@ -27,6 +28,13 @@ public class Salario {
     }
     public void setvlSalario(double salario) {
         this.vlSalario = salario;
+    }
+    
+    public int getidSalario() {
+        return idSalario;
+    }
+    public void setidSalario(int salario) {
+        this.idSalario = salario;
     }
 
 }

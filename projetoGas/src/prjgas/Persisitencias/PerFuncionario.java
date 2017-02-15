@@ -90,4 +90,47 @@ public class PerFuncionario {
         } JOptionPane.showMessageDialog(null,"Alterado com sucesso");
         return true;
     }
+       public String FuncionarioPorNome(String Fun){
+        String sql="select idFuncionario from tbFuncionariowhere nmFuncionario = '"+Fun+"'";
+        String Funci="";
+        try{
+            Connection conn=Conexao.getConexao();
+            PreparedStatement prepared;
+            ResultSet resultset;//campos preeenchidos;cópia da tabela
+            prepared = conn.prepareStatement(sql);
+            resultset=prepared.executeQuery();
+            if(resultset.next()){//enquanto estiver próximo registro...
+                Funci=resultset.getString(1);
+                return Funci;                
+            }
+            conn.close();
+        }
+        catch(SQLException e){
+            System.out.println("Erro ao localizar dados "+e.getMessage());                   
+        }
+        return null;
+        
+       }
+       
+        public ArrayList<Funcionario> FuncionarioPorId(int id) {
+        String SQL = "select * from tbFuncionario where idFuncionario=" + id + "";
+        Connection con = Conexao.getConexao();
+        PreparedStatement pst;
+        try {
+            pst = con.prepareStatement(SQL);
+            ResultSet rs;
+            rs = pst.executeQuery();
+            ArrayList funcionario = new ArrayList();
+            while (rs.next()) {
+                Funcionario model = new Funcionario();
+                model.setidSalario(rs.getInt(4));
+                funcionario.add(model);
+            }
+            con.close();
+            return funcionario;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }
 }

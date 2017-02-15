@@ -3,6 +3,9 @@ package prjgas.Persisitencias;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import prjgas.Modelo.Conexao;
 import prjgas.Modelo.Salario;
 
@@ -27,4 +30,27 @@ public class PerSalario {
             return false;
         }
      }  
+     public ArrayList<Salario> TodosSalarios() {
+        String SQL = "select * from tbSalario";
+        Connection con = Conexao.getConexao();
+        PreparedStatement pst;
+        try {
+            pst = con.prepareStatement(SQL);
+            ResultSet rs;
+            rs = pst.executeQuery();
+            ArrayList classeSalario = new ArrayList();
+            while (rs.next()) {
+                Salario salario=new Salario();
+                salario.setdtInicioVigencia(rs.getString(1));
+                salario.setdtTerminoVigencia(rs.getString(2));
+                salario.setvlSalario(rs.getDouble(3));
+                classeSalario.add(salario);
+            }
+            con.close();
+            return classeSalario;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }
 }
