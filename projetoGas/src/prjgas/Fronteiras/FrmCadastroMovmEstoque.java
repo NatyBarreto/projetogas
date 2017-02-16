@@ -23,14 +23,13 @@ public class FrmCadastroMovmEstoque extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         txtProduto = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        txttipoMovmFinanceira = new javax.swing.JTextField();
         bttMovmEstoque = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
 
         jLabel1.setBackground(new java.awt.Color(0, 204, 102));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(" Movimentação Estoque");
@@ -80,9 +79,8 @@ public class FrmCadastroMovmEstoque extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bttMovmEstoque)
-                            .addComponent(txttipoMovmFinanceira, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bttMovmEstoque)
+                        .addGap(324, 324, 324))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -93,7 +91,7 @@ public class FrmCadastroMovmEstoque extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtdtMovmEstoque)
@@ -106,10 +104,8 @@ public class FrmCadastroMovmEstoque extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txttipoMovmFinanceira, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 20, Short.MAX_VALUE)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(bttMovmEstoque)
                 .addGap(39, 39, 39))
@@ -139,6 +135,5 @@ public class FrmCadastroMovmEstoque extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtProduto;
     private javax.swing.JTextField txtdtMovmEstoque;
     private javax.swing.JTextField txtqtdMovmEstoque;
-    private javax.swing.JTextField txttipoMovmFinanceira;
     // End of variables declaration//GEN-END:variables
 }

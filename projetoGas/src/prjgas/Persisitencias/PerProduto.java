@@ -73,7 +73,7 @@ public class PerProduto {
         return false;
     }
 
-    public boolean AlterarFuncionario(Produto produto) {
+    public boolean AlterarProduto(Produto produto) {
 
         String SQL = "update tbProduto set nmProduto =?,dscrProduto =? where idProduto =?";
         Connection conn = null;

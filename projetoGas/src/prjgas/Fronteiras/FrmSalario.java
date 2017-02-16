@@ -74,10 +74,10 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
         bttNovo.setBounds(620, 380, 140, 46);
 
         jLabel4.setBackground(new java.awt.Color(0, 204, 102));
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Cadastro Salário");
+        jLabel4.setText("Salário");
         jLabel4.setOpaque(true);
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 810, 62);

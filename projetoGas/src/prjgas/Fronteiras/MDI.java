@@ -33,6 +33,7 @@ public class MDI extends javax.swing.JFrame {
         Funcionario = new javax.swing.JMenuItem();
         Produto = new javax.swing.JMenuItem();
         Salario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         MovimentacaoEstoque = new javax.swing.JMenuItem();
         MovimentacaoFinanceira = new javax.swing.JMenuItem();
         TipoMovmFinanceira = new javax.swing.JMenuItem();
@@ -49,11 +50,13 @@ public class MDI extends javax.swing.JFrame {
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+            .addGap(0, 464, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Entrada de Dados");
+        jMenu1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
 
+        Funcionario.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         Funcionario.setText("Funcionário");
         Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +65,7 @@ public class MDI extends javax.swing.JFrame {
         });
         jMenu1.add(Funcionario);
 
+        Produto.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         Produto.setText("Produto");
         Produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +74,7 @@ public class MDI extends javax.swing.JFrame {
         });
         jMenu1.add(Produto);
 
+        Salario.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         Salario.setText("Salário");
         Salario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +83,16 @@ public class MDI extends javax.swing.JFrame {
         });
         jMenu1.add(Salario);
 
+        jMenuItem1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jMenuItem1.setText("Movimentação");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        MovimentacaoEstoque.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         MovimentacaoEstoque.setText("Movimentação Estoque");
         MovimentacaoEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +101,7 @@ public class MDI extends javax.swing.JFrame {
         });
         jMenu1.add(MovimentacaoEstoque);
 
+        MovimentacaoFinanceira.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         MovimentacaoFinanceira.setText("Movimentação Financeira");
         MovimentacaoFinanceira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +110,7 @@ public class MDI extends javax.swing.JFrame {
         });
         jMenu1.add(MovimentacaoFinanceira);
 
+        TipoMovmFinanceira.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         TipoMovmFinanceira.setText("Tipo de Movimentação Financeira");
         TipoMovmFinanceira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +122,7 @@ public class MDI extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Relatórios");
+        jMenu2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -160,6 +178,12 @@ public class MDI extends javax.swing.JFrame {
         tipo.show();
     }//GEN-LAST:event_TipoMovmFinanceiraActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmMovimentacao movimentacao= new FrmMovimentacao();
+        painel.add(movimentacao);
+        movimentacao.show();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,6 +229,7 @@ public class MDI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JDesktopPane painel;
     // End of variables declaration//GEN-END:variables
 }

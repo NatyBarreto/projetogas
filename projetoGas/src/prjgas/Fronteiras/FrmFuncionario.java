@@ -39,7 +39,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(900, 600));
+        setPreferredSize(new java.awt.Dimension(780, 650));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -60,21 +60,24 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(0, 204, 102));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro Funcionário");
+        jLabel1.setText(" Funcionário");
         jLabel1.setOpaque(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(360, 45));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 880, 62);
+        jLabel1.setBounds(0, 0, 770, 62);
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Nome:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(0, 80, 89, 37);
+        jLabel16.setBounds(20, 90, 89, 30);
+
+        txtnmFuncionario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtnmFuncionario);
-        txtnmFuncionario.setBounds(10, 110, 430, 30);
+        txtnmFuncionario.setBounds(30, 120, 340, 30);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttDeletar.setText("DELETAR");
@@ -84,21 +87,23 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(680, 450, 150, 39);
+        bttDeletar.setBounds(590, 549, 150, 50);
+
+        txtnmCargoFuncinario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtnmCargoFuncinario);
-        txtnmCargoFuncinario.setBounds(480, 110, 350, 30);
+        txtnmCargoFuncinario.setBounds(420, 120, 320, 30);
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Cargo:");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(470, 80, 89, 30);
+        jLabel17.setBounds(410, 90, 89, 30);
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Tabela Funcionário");
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(0, 220, 215, 37);
+        jLabel20.setBounds(0, 260, 215, 37);
 
         bttNovo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttNovo.setText("NOVO");
@@ -108,8 +113,9 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(460, 150, 150, 39);
+        bttNovo.setBounds(390, 190, 130, 50);
 
+        tblFuncionario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         tblFuncionario.setModel(vTabelaFuncionario);
         tblFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,7 +125,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblFuncionario);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 260, 640, 230);
+        jScrollPane1.setBounds(20, 300, 720, 230);
 
         bttSalvar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttSalvar.setText("SALVAR");
@@ -129,11 +135,11 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(250, 150, 170, 39);
+        bttSalvar.setBounds(240, 190, 140, 50);
 
         txtidFuncionario.setAutoscrolls(false);
         getContentPane().add(txtidFuncionario);
-        txtidFuncionario.setBounds(720, 180, 6, 20);
+        txtidFuncionario.setBounds(30, 220, 70, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,7 +156,6 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             funcionario.setnmFuncionario(txtnmFuncionario.getText());
             funcionario.setnmCargoFuncionario(txtnmCargoFuncinario.getText());
             perFuncionario.inserirFuncionario(funcionario);
-            Limpar();
         } else {
             funcionario.setidFuncionario(Integer.parseInt(txtidFuncionario.getText()));
             funcionario.setnmFuncionario(txtnmFuncionario.getText());
@@ -159,8 +164,9 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             perFuncionario.AlterarFuncionario(funcionario);
             this.getParent(); 
             
-            Limpar();
+            
         }
+        Limpar();
         PreencherTabelaFuncionario();
     }//GEN-LAST:event_bttSalvarActionPerformed
 
@@ -202,17 +208,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtnmFuncionario;
     // End of variables declaration//GEN-END:variables
 
-    private void PreencherTabelaFuncionario() {
-     //   vTabelaFuncionario=(DefaultTableModel)tblFuncionario.getModel();// Aplicar Conversão
-       //int t=vTabelaFuncionario.getRowCount();
-       
- 
-       
-      // for(int i=0;i<t;i++){
-         //  vTabelaFuncionario.removeRow(i);
-     //  }
-       
-       
+    private void PreencherTabelaFuncionario() {      
        vTabelaFuncionario.setRowCount(0);
        PerFuncionario perFuncionario=new PerFuncionario();
        ArrayList<Funcionario> classeFuncionario= perFuncionario.TodosFuncionarios();
@@ -227,7 +223,6 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
               vTabelaFuncionario.addRow(linha);
        }
     }
-
     private void Limpar() {
         txtnmFuncionario.setText(null);
         txtnmCargoFuncinario.setText(null);
