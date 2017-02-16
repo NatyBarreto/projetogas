@@ -229,8 +229,8 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
     }
 
     private void Limpar() {
-        txtnmFuncionario.setText("");
-        txtnmCargoFuncinario.setText("");
-        txtidFuncionario.setText("");
+        txtnmFuncionario.setText(null);
+        txtnmCargoFuncinario.setText(null);
+        txtidFuncionario.setText(null);
     }
 }

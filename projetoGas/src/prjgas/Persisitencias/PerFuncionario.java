@@ -55,8 +55,8 @@ public class PerFuncionario {
             return null;
         }
     }
-     public boolean deletarFuncionario(int codFuncionario){
-       String sql="delete from tbFuncionario where idFuncionario="+codFuncionario;
+     public boolean deletarFuncionario(int idFuncionario){
+       String sql="delete from tbFuncionario where idFuncionario="+idFuncionario;
        Connection conn= null;
        PreparedStatement pst=null;
        try{

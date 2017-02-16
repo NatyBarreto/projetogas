@@ -131,7 +131,7 @@ public class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_FuncionarioActionPerformed
 
     private void ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProdutoActionPerformed
-       FrmCadastroProduto produto=new FrmCadastroProduto();
+       FrmProduto produto=new FrmProduto();
         painel.add(produto);
         produto.show();
     }//GEN-LAST:event_ProdutoActionPerformed

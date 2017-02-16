@@ -4,6 +4,7 @@ package prjgas.Modelo;
 public class Produto {
     String nmProduto,
            dscrProduto;
+    int idProduto;
     
   public String getnmProduto() {
         return nmProduto;
@@ -19,5 +20,13 @@ public class Produto {
 
   public void setdscrProduto(String descricao) {
         this.dscrProduto = descricao;
+  }
+  
+   public int getidProduto() {
+        return idProduto;
+  }
+
+  public void setidProduto(int id) {
+        this.idProduto = id;
   }
 }
