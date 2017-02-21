@@ -5,11 +5,11 @@ import javax.swing.JOptionPane;
 import prjgas.Modelo.Funcionario;
 import prjgas.Modelo.MovimentacaoFinanceira;
 import prjgas.Modelo.Produto;
-import prjgas.Modelo.TipoMovmFinanceira;
+import prjgas.Modelo.TipoMovimentacao;
 import prjgas.Persisitencias.PerFuncionario;
 import prjgas.Persisitencias.PerMovimentacaoFinanceira;
 import prjgas.Persisitencias.PerProduto;
-import prjgas.Persisitencias.PerTipoMovmFinanceira;
+import prjgas.Persisitencias.PerTipoMovimentacao;
 
 public class FrmCadastroMovmFinanceira extends javax.swing.JInternalFrame {
 
@@ -156,7 +156,6 @@ public class FrmCadastroMovmFinanceira extends javax.swing.JInternalFrame {
         cmbProduto.setBounds(430, 100, 330, 30);
 
         cmbDespesa.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        cmbDespesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<<ou selecione a despesa>>" }));
         cmbDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbDespesaActionPerformed(evt);
@@ -203,7 +202,6 @@ public class FrmCadastroMovmFinanceira extends javax.swing.JInternalFrame {
         jLabel22.setBounds(10, 220, 240, 30);
 
         cmbTipoMovimentacao.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        cmbTipoMovimentacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<<Selecione um tipo de movimentação>>", "Compra", "Doação", "Vale", "Venda", " " }));
         cmbTipoMovimentacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTipoMovimentacaoActionPerformed(evt);
@@ -267,9 +265,9 @@ public class FrmCadastroMovmFinanceira extends javax.swing.JInternalFrame {
             cmbProduto.addItem(linha[0]);
         }
         
-        PerTipoMovmFinanceira perTipoMovmFinanceira = new PerTipoMovmFinanceira();
-        ArrayList<TipoMovmFinanceira> tipoMovmFinanceira = perTipoMovmFinanceira.TodosTiposMovmFinanceira();//ArrayList=matriz dinanmica 
-        for (TipoMovmFinanceira t : tipoMovmFinanceira) {
+        PerTipoMovimentacao perTipoMovmFinanceira = new PerTipoMovimentacao();
+        ArrayList<TipoMovimentacao> tipoMovmFinanceira = perTipoMovmFinanceira.TodosTiposMovmFinanceira();//ArrayList=matriz dinanmica 
+        for (TipoMovimentacao t : tipoMovmFinanceira) {
             String linha[] = new String[1];
             // linha[0]=String.valueOf(f.getidTipoMovmFinanceira());
             linha[0] = t.getnmTipoMovmFinanceira();

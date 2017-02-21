@@ -179,7 +179,7 @@ public class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_TipoMovmFinanceiraActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrmMovimentacao movimentacao= new FrmMovimentacao();
+        FrmTipoMovimentacao movimentacao= new FrmTipoMovimentacao();
         painel.add(movimentacao);
         movimentacao.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

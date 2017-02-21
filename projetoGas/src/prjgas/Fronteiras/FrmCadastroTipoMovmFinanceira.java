@@ -1,8 +1,8 @@
 package prjgas.Fronteiras;
 
 import javax.swing.table.DefaultTableModel;
-import prjgas.Modelo.TipoMovmFinanceira;
-import prjgas.Persisitencias.PerTipoMovmFinanceira;
+import prjgas.Modelo.TipoMovimentacao;
+import prjgas.Persisitencias.PerTipoMovimentacao;
 
 public class FrmCadastroTipoMovmFinanceira extends javax.swing.JInternalFrame {
 
@@ -130,11 +130,11 @@ public class FrmCadastroTipoMovmFinanceira extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bttDeletarActionPerformed
 
     private void bttSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSalvarActionPerformed
-       TipoMovmFinanceira tipo = new TipoMovmFinanceira();
+       TipoMovimentacao tipo = new TipoMovimentacao();
         tipo.setnmTipoMovmFinanceira(txtnmTipoMovmFinanceira.getText());
         tipo.setdscrTipoMovmFinanceira(txadscrTipoMovmFinanceira.getText());
 
-        PerTipoMovmFinanceira.inserirTipoMovmFinanceira(tipo);
+        PerTipoMovimentacao.inserirTipoMovmFinanceira(tipo);
     }//GEN-LAST:event_bttSalvarActionPerformed
 
     private void bttNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttNovoActionPerformed
