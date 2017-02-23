@@ -3,10 +3,18 @@ use dbGas
 
 drop database dbGas
 
-create table tbTipoMovimentacaoFinanceira(
-idTipoMovmFinanceira int primary key identity(1,1),
-nmTipoMovmFinanceira varchar(50) not null,
-dscrTipoMovmFinanceira varchar(100))
+create table tbTipoMovimentacao(
+idTipoMovimentacao int primary key identity(1,1),
+nmTipoMovimentacao varchar(50) not null,
+dscrTipoMovimentacao varchar(100),
+situacao varchar(10)not null,
+saidaFinanceira varchar(20),
+entradaFinanceira varchar(20),
+saidaEstoque varchar(20),
+entradaEstoque varchar(20),
+requerFuncionario varchar(20),
+idTipoMovimentacaoPai int)
+aLTER TABLE tbTipoMovimentacao add foreign Key (idTipoMovimentacaoPai) references tbTipoMovimentacao(idTipoMovimentacao)
 
 create table tbProduto(
 idProduto int primary key identity(1,1),
@@ -15,8 +23,8 @@ dscrProduto varchar(100) not null)
 
 create table tbSalario(
 idSalario int primary key identity(1,1),
-dtInicioVigencia smalldatetime not null,
-dtTerminoVigencia smalldatetime not null,
+dtInicioVigencia varchar not null,
+dtTerminoVigencia varchar not null,
 vlSalario float not null)
 
 create table tbMovimentacaoEstoque(
@@ -26,7 +34,7 @@ qtdMovmEstoque int not null,
 produto int,
 tipoMovmFinanceira int,
 foreign Key (produto) references tbProduto on delete cascade,
-foreign Key (tipoMovmFinanceira) references tbTipoMovimentacaoFinanceira on delete cascade)
+foreign Key (tipoMovmFinanceira) references tbTipoMovimentacao on delete cascade)
 
 create table tbFuncionario(
 idFuncionario int primary key identity(1,1),
@@ -43,9 +51,11 @@ dscrMovmFinanceira varchar(100),
 tipoMovmFinanceira int,
 movimentacaoEstoque int,
 funcionario int,
-foreign Key (tipoMovmFinanceira) references tbTipoMovimentacaoFinanceira,
+foreign Key (tipoMovmFinanceira) references tbTipoMovimentacao,
 foreign Key (movimentacaoEstoque) references tbMovimentacaoEstoque on delete cascade,
 foreign Key (funcionario) references tbFuncionario on delete cascade)
+
+select * from tbTipoMovimentacao
 
 /*Create table tbVenda(
 codVenda int primary key identity(1,1),
