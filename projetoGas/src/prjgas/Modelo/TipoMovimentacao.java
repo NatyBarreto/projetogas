@@ -4,7 +4,12 @@ public class TipoMovimentacao {
 
     String nmTipoMovimentacao,
             dscrTipoMovimentacao,
-            situcao;
+            situcao,
+            saidaFinanceira,
+            entradaFinanceira,
+            saidaEstoque,
+            entradaEstoque,
+            requerFuncionario;
     int idTipoMovimentacao,
         idTipoMovimentacaoPai;
     
@@ -53,6 +58,44 @@ public class TipoMovimentacao {
         return nmTipoMovimentacao;
     }
     
+    public String getSaidaFinanceira() {
+        return saidaFinanceira;
+    }
+
+    public void setSaidaFinanceira(String saidaFi) {
+        this.saidaFinanceira = saidaFi;
+    }
     
+    public String getEntradaFinanceira() {
+        return entradaFinanceira;
+    }
+
+    public void setEntradaFinanceira(String entradaFi) {
+        this.entradaFinanceira = entradaFi;
+    }
+    
+    public String getSaidaEstoque() {
+        return saidaEstoque;
+    }
+
+    public void setSaidaEstoque(String saidaEs) {
+        this.saidaEstoque = saidaEs;
+    }
+    
+    public String getEntradaEstoque() {
+        return entradaEstoque;
+    }
+
+    public void setEntradaEstoque(String entradaEs) {
+        this.entradaEstoque = entradaEs;
+    }
+    
+    public String getRequerFuncionario() {
+        return requerFuncionario;
+    }
+
+    public void setRequerFuncionario(String requerFun) {
+        this.requerFuncionario = requerFun;
+    }
     
 }

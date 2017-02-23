@@ -13,7 +13,7 @@ import prjgas.Modelo.TipoMovimentacao;
 
 public class PerTipoMovimentacao {
      public static boolean inserirTipoMovimentacao(TipoMovimentacao tipo){
-        String SQL="insert into tbTipoMovimentacao(nmTipoMovimentacao,dscrTipoMovimentacao,situacao) values (?,?,?)"; 
+        String SQL="insert into tbTipoMovimentacao(nmTipoMovimentacao,dscrTipoMovimentacao,situacao,saidaFinanceira,entradaFinanceira,saidaEstoque,entradaEstoque,requerFuncionario,idTipoMovimentacaoPai) values (?,?,?,?,?,?,?,?,?)"; 
         Connection conn=null;
         PreparedStatement pst=null;
         
@@ -25,6 +25,12 @@ public class PerTipoMovimentacao {
             pst.setString(1,tipo.getnmTipoMovimentacao());
             pst.setString(2,tipo.getdscrTipoMovimentacao());
             pst.setString(3,tipo.getSituacao());
+            pst.setString(4,tipo.getSaidaFinanceira());
+            pst.setString(5,tipo.getEntradaFinanceira());
+            pst.setString(6,tipo.getSaidaEstoque());
+            pst.setString(7,tipo.getEntradaEstoque());
+            pst.setString(8,tipo.getRequerFuncionario());
+            pst.setInt(9,tipo.getidTipoMovimentacaoPai());
           
             pst.executeUpdate();// executa no banco de dados
             return true;
@@ -77,7 +83,7 @@ public class PerTipoMovimentacao {
      
       public boolean AlterarTipoMovimentacao(TipoMovimentacao tipo) {
 
-        String SQL = "update tbTipoMovimentacao set nmTipoMovimentacao=?,dscrTipoMovimentacao =?, situacao=? where idTipoMovmFinanceira =?";
+        String SQL = "update tbTipoMovimentacao set nmTipoMovimentacao=?,dscrTipoMovimentacao =?, situacao=?,saidaFinanceira=?,entradaFinanceira=?,saidaEstoque=?,entradaEstoque=?,requerFuncionario=?,idTipoMovimentacaoPai=? where idTipoMovmFinanceira =?";
         Connection conn = null;
         PreparedStatement pst = null;
         try {
@@ -85,9 +91,14 @@ public class PerTipoMovimentacao {
 
             pst = conn.prepareStatement(SQL);
             pst.setString(1,tipo.getnmTipoMovimentacao());
-            pst.setString(2, tipo.getdscrTipoMovimentacao());
+            pst.setString(2,tipo.getdscrTipoMovimentacao());
             pst.setString(3,tipo.getSituacao());
-            pst.setInt(4,tipo.getidTipoMovimentacao());
+            pst.setString(4,tipo.getSaidaFinanceira());
+            pst.setString(5,tipo.getEntradaFinanceira());
+            pst.setString(6,tipo.getSaidaEstoque());
+            pst.setString(7,tipo.getEntradaEstoque());
+            pst.setString(8,tipo.getRequerFuncionario());
+            pst.setInt(9,tipo.getidTipoMovimentacaoPai());
             pst.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro na conexão ao alterar: " + e.getMessage(), "ERRO", 0);

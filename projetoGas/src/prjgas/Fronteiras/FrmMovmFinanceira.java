@@ -11,9 +11,9 @@ import prjgas.Persisitencias.PerMovimentacaoFinanceira;
 import prjgas.Persisitencias.PerProduto;
 import prjgas.Persisitencias.PerTipoMovimentacao;
 
-public class FrmCadastroMovmFinanceira extends javax.swing.JInternalFrame {
+public class FrmMovmFinanceira extends javax.swing.JInternalFrame {
 
-    public FrmCadastroMovmFinanceira() {
+    public FrmMovmFinanceira() {
         initComponents();
 
         cmbFuncionario.setVisible(false);

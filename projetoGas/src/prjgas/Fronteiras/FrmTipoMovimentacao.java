@@ -23,6 +23,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         initComponents();
         
         txtidTipoMovimentacao.setVisible(false);
+        cmbPai.setVisible(false);
         
         vTabela.addColumn("Nome");
         vTabela.addColumn("Descrição");
@@ -61,7 +62,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(720, 475));
+        setPreferredSize(new java.awt.Dimension(785, 663));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -264,8 +265,22 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         if (txtidTipoMovimentacao.getText().length() == 0) {
             tipoMovimentacao.setnmTipoMovimentacao(txtNome.getText());
             tipoMovimentacao.setdscrTipoMovimentacao(txaDescricao.getText());
+            tipoMovimentacao.setidTipoMovimentcaoPai(Integer.parseInt(cmbTipoMovmPai.getSelectedItem().toString()));
             tipoMovimentacao.setSituacao("Ativo");
             
+            if(rbSaidaFinanceira.isSelected()){
+                tipoMovimentacao.setSaidaFinanceira("Saida Financeira");
+            }else if(rbEntradaFinanceira.isSelected()){
+                tipoMovimentacao.setEntradaFinanceira("Entrada Financeira");
+            }
+            if(rbSaidaEstoque.isSelected()){
+                tipoMovimentacao.setSaidaEstoque("Saida Estoque");
+            }else if(rbEntradaEstoque.isSelected()){
+                tipoMovimentacao.setEntradaEstoque("Entrada Estoque");
+            }
+            if(cbFuncionario.isSelected()){
+                tipoMovimentacao.setRequerFuncionario("Requer Funcionario");
+            }
             perTipoMovimentacao.inserirTipoMovimentacao(tipoMovimentacao);
         } else {
             tipoMovimentacao.setidTipoMovimentcao(Integer.parseInt(txtidTipoMovimentacao.getText()));
