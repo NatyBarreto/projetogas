@@ -42,14 +42,15 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         bttProduto1 = new javax.swing.JButton();
         bttSalvar = new javax.swing.JButton();
         bttDeletar = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblProduto = new javax.swing.JTable();
         txtidProduto = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(700, 650));
+        setMaximizable(true);
+        setResizable(true);
+        setPreferredSize(new java.awt.Dimension(897, 563));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -69,24 +70,24 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(0, 204, 102));
+        jLabel1.setBackground(new java.awt.Color(0, 153, 102));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Produto");
         jLabel1.setOpaque(true);
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 690, 62);
+        jLabel1.setBounds(0, 0, 890, 62);
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Descrição:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(340, 91, 109, 30);
+        jLabel16.setBounds(510, 90, 109, 30);
 
         txtnmProduto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtnmProduto);
-        txtnmProduto.setBounds(30, 120, 270, 30);
+        txtnmProduto.setBounds(30, 120, 380, 30);
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -100,9 +101,10 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(txadscrProduto);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(340, 120, 330, 101);
+        jScrollPane1.setBounds(510, 120, 360, 100);
 
         bttNovo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/add.png"))); // NOI18N
         bttNovo.setText("NOVO");
         bttNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +112,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(170, 200, 120, 50);
+        bttNovo.setBounds(450, 250, 160, 70);
 
         jInternalFrame1.setClosable(true);
         jInternalFrame1.setIconifiable(true);
@@ -160,6 +162,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         jInternalFrame1.setBounds(0, 0, 60, 33);
 
         bttSalvar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/checked.png"))); // NOI18N
         bttSalvar.setText("SALVAR");
         bttSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,9 +170,10 @@ public class FrmProduto extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(40, 200, 120, 50);
+        bttSalvar.setBounds(270, 250, 170, 70);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
         bttDeletar.setText("DELETAR");
         bttDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,13 +181,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(520, 560, 150, 39);
-
-        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Tabela Produto");
-        getContentPane().add(jLabel20);
-        jLabel20.setBounds(0, 270, 215, 37);
+        bttDeletar.setBounds(680, 420, 190, 70);
 
         jScrollPane3.setPreferredSize(new java.awt.Dimension(700, 900));
         jScrollPane3.setRequestFocusEnabled(false);
@@ -199,11 +197,11 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(tblProduto);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(30, 310, 640, 230);
+        jScrollPane3.setBounds(20, 340, 640, 150);
 
         txtidProduto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtidProduto);
-        txtidProduto.setBounds(510, 270, 160, 25);
+        txtidProduto.setBounds(30, 160, 160, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,7 +248,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
     private void tblProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutoMouseClicked
         txtnmProduto.setText(vTabelaProduto.getValueAt(tblProduto.getSelectedRow(), 0).toString());
         txadscrProduto.setText(vTabelaProduto.getValueAt(tblProduto.getSelectedRow(), 1).toString());
-        txtidProduto.setText(vTabelaProduto.getValueAt(tblProduto.getSelectedColumn(), 2).toString());
+        txtidProduto.setText(vTabelaProduto.getValueAt(tblProduto.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_tblProdutoMouseClicked
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
@@ -270,7 +268,6 @@ public class FrmProduto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -291,8 +288,8 @@ public class FrmProduto extends javax.swing.JInternalFrame {
     private void PreencherTabelaProduto() {
 
         vTabelaProduto.setRowCount(0);
-        PerProduto perFuncionario = new PerProduto();
-        ArrayList<Produto> classeProduto = perFuncionario.TodosProdutos();
+        PerProduto perProduto = new PerProduto();
+        ArrayList<Produto> classeProduto = perProduto.TodosProdutos();
 
         for (Produto p : classeProduto) {
 

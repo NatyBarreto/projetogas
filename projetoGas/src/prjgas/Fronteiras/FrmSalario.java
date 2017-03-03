@@ -28,7 +28,6 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         txtdtTerminoVigencia = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         cmbFuncionario = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -64,6 +63,7 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
         txtdtInicioVigencia.setBounds(40, 290, 200, 36);
 
         bttNovo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/add.png"))); // NOI18N
         bttNovo.setText("NOVO");
         bttNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,9 +71,9 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(620, 380, 140, 46);
+        bttNovo.setBounds(610, 350, 160, 70);
 
-        jLabel4.setBackground(new java.awt.Color(0, 204, 102));
+        jLabel4.setBackground(new java.awt.Color(0, 153, 102));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -96,12 +96,6 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
         getContentPane().add(txtdtTerminoVigencia);
         txtdtTerminoVigencia.setBounds(40, 400, 200, 34);
 
-        jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Tabela Salário");
-        getContentPane().add(jLabel19);
-        jLabel19.setBounds(370, 80, 213, 37);
-
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Data Início Vigência:");
@@ -120,7 +114,7 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
         jScrollPane1.setViewportView(tblSalario);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(410, 110, 370, 240);
+        jScrollPane1.setBounds(400, 80, 370, 240);
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -129,6 +123,7 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
         jLabel21.setBounds(30, 160, 213, 37);
 
         bttSalvar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/checked.png"))); // NOI18N
         bttSalvar.setText("SALVAR");
         bttSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,13 +131,13 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(420, 380, 140, 46);
+        bttSalvar.setBounds(420, 350, 180, 70);
         getContentPane().add(txtvlSalario);
         txtvlSalario.setBounds(40, 190, 200, 36);
         getContentPane().add(txtidSalario);
-        txtidSalario.setBounds(170, 140, 110, 20);
+        txtidSalario.setBounds(180, 130, 110, 30);
         getContentPane().add(txtidFuncionario);
-        txtidFuncionario.setBounds(30, 140, 110, 20);
+        txtidFuncionario.setBounds(30, 130, 110, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,6 +176,11 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void cmbFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFuncionarioActionPerformed
+       
+        
+        
+        
+        
         PreencherTabela();
         
         
@@ -193,7 +193,6 @@ DefaultTableModel vTabelaSalario=new DefaultTableModel();
     private javax.swing.JComboBox<String> cmbFuncionario;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;

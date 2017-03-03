@@ -23,6 +23,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         initComponents();
         
         txtidTipoMovimentacao.setVisible(false);
+        txtidTipoMovmPai.setVisible(false);
         cmbPai.setVisible(false);
         
         vTabela.addColumn("Nome");
@@ -40,7 +41,6 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel4 = new javax.swing.JLabel();
         cbFuncionario = new javax.swing.JCheckBox();
-        lbDescricao = new javax.swing.JLabel();
         lbTipoMovmFinanceira = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         cmbTipoMovmPai = new javax.swing.JComboBox<Item>();
@@ -59,10 +59,12 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         bttDeletar = new javax.swing.JButton();
         txtidTipoMovimentacao = new javax.swing.JTextField();
         cmbPai = new javax.swing.JComboBox<>();
+        txtidTipoMovmPai = new javax.swing.JTextField();
+        lbDescricao1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(785, 663));
+        setPreferredSize(new java.awt.Dimension(822, 667));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -82,14 +84,14 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(null);
 
-        jLabel4.setBackground(new java.awt.Color(0, 204, 102));
+        jLabel4.setBackground(new java.awt.Color(0, 153, 102));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Tipo Movimentação");
         jLabel4.setOpaque(true);
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 770, 62);
+        jLabel4.setBounds(0, 0, 810, 62);
 
         cbFuncionario.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         cbFuncionario.setText("Requer Funcionário");
@@ -99,13 +101,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(cbFuncionario);
-        cbFuncionario.setBounds(30, 300, 200, 40);
-
-        lbDescricao.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lbDescricao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbDescricao.setText("Descrição:");
-        getContentPane().add(lbDescricao);
-        lbDescricao.setBounds(400, 80, 130, 30);
+        cbFuncionario.setBounds(130, 310, 200, 40);
 
         lbTipoMovmFinanceira.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lbTipoMovmFinanceira.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -123,6 +119,11 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
 
         cmbTipoMovmPai.setPreferredSize(new java.awt.Dimension(777, 445));
         cmbTipoMovmPai.setRenderer(new ItemRenderer());
+        cmbTipoMovmPai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipoMovmPaiActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmbTipoMovmPai);
         cmbTipoMovmPai.setBounds(30, 190, 310, 30);
 
@@ -137,7 +138,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(txaDescricao);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(410, 110, 310, 70);
+        jScrollPane1.setBounds(420, 110, 370, 110);
 
         bttSituacao.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttSituacao.setText("ATIVAR/DESATIVAR");
@@ -147,9 +148,10 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSituacao);
-        bttSituacao.setBounds(570, 500, 200, 50);
+        bttSituacao.setBounds(600, 500, 193, 50);
 
         bttSalvar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/checked.png"))); // NOI18N
         bttSalvar.setText("SALVAR");
         bttSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,13 +159,13 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(510, 220, 130, 50);
+        bttSalvar.setBounds(440, 260, 170, 70);
 
         buttonGroup2.add(rbEntradaEstoque);
         rbEntradaEstoque.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         rbEntradaEstoque.setText("Entrada de Estoque");
         getContentPane().add(rbEntradaEstoque);
-        rbEntradaEstoque.setBounds(230, 290, 200, 40);
+        rbEntradaEstoque.setBounds(230, 270, 200, 40);
 
         buttonGroup1.add(rbSaidaFinanceira);
         rbSaidaFinanceira.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -181,7 +183,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         rbSaidaEstoque.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         rbSaidaEstoque.setText("Saída de Estoque");
         getContentPane().add(rbSaidaEstoque);
-        rbSaidaEstoque.setBounds(230, 260, 180, 40);
+        rbSaidaEstoque.setBounds(230, 240, 180, 40);
 
         tblTipoMovimentacao.setModel(vTabela);
         tblTipoMovimentacao.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,9 +194,10 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblTipoMovimentacao);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(20, 370, 540, 240);
+        jScrollPane2.setBounds(20, 380, 550, 240);
 
         bttNovo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/add.png"))); // NOI18N
         bttNovo.setText("NOVO");
         bttNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,9 +205,10 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(510, 280, 130, 50);
+        bttNovo.setBounds(620, 260, 160, 70);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
         bttDeletar.setText("DELETAR");
         bttDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,13 +216,21 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(610, 560, 130, 50);
+        bttDeletar.setBounds(610, 560, 170, 70);
         getContentPane().add(txtidTipoMovimentacao);
-        txtidTipoMovimentacao.setBounds(230, 80, 6, 20);
+        txtidTipoMovimentacao.setBounds(0, 60, 70, 20);
 
         cmbPai.setAutoscrolls(true);
         getContentPane().add(cmbPai);
-        cmbPai.setBounds(390, 200, 28, 20);
+        cmbPai.setBounds(360, 190, 28, 20);
+        getContentPane().add(txtidTipoMovmPai);
+        txtidTipoMovmPai.setBounds(30, 220, 80, 20);
+
+        lbDescricao1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lbDescricao1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDescricao1.setText("Descrição:");
+        getContentPane().add(lbDescricao1);
+        lbDescricao1.setBounds(400, 80, 130, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -234,13 +246,14 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
     private void bttSituacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSituacaoActionPerformed
         TipoMovimentacao tipoMovimentacao = new TipoMovimentacao();
         PerTipoMovimentacao perTipoMovimentacao = new PerTipoMovimentacao();
-        if (tipoMovimentacao.getSituacao().equals("Desativado")) {
-            tipoMovimentacao.setSituacao("Ativo");
+         TipoMovimentacao consulta= perTipoMovimentacao.ConsultarTipoMovimentacao(Integer.parseInt(txtidTipoMovimentacao.getText()));
+        if (tipoMovimentacao.isSituacao()) {
+            consulta.setSituacao(false);
         } else {
-            tipoMovimentacao.setSituacao("Desativado");
+            consulta.setSituacao(true);
         }
         
-        perTipoMovimentacao.AlterarTipoMovimentacao(tipoMovimentacao);
+        perTipoMovimentacao.AlterarTipoMovimentacao(consulta);
         this.getParent();
     }//GEN-LAST:event_bttSituacaoActionPerformed
 
@@ -257,6 +270,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         
         JOptionPane.showMessageDialog(this, "Registro deletado com sucesso!");
         limpar();
+        Preencher();
     }//GEN-LAST:event_bttDeletarActionPerformed
 
     private void bttSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSalvarActionPerformed
@@ -265,47 +279,92 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         if (txtidTipoMovimentacao.getText().length() == 0) {
             tipoMovimentacao.setnmTipoMovimentacao(txtNome.getText());
             tipoMovimentacao.setdscrTipoMovimentacao(txaDescricao.getText());
-            tipoMovimentacao.setidTipoMovimentcaoPai(Integer.parseInt(cmbTipoMovmPai.getSelectedItem().toString()));
-            tipoMovimentacao.setSituacao("Ativo");
+            if(txtidTipoMovmPai.getText().length()!=0){
+            tipoMovimentacao.setidTipoMovimentcaoPai(Integer.parseInt(txtidTipoMovmPai.getText()));
+            }
+            tipoMovimentacao.setSituacao(true);
             
             if(rbSaidaFinanceira.isSelected()){
-                tipoMovimentacao.setSaidaFinanceira("Saida Financeira");
+                tipoMovimentacao.setSaidaFinanceira(true);
             }else if(rbEntradaFinanceira.isSelected()){
-                tipoMovimentacao.setEntradaFinanceira("Entrada Financeira");
+                tipoMovimentacao.setEntradaFinanceira(true);
             }
             if(rbSaidaEstoque.isSelected()){
-                tipoMovimentacao.setSaidaEstoque("Saida Estoque");
+                tipoMovimentacao.setSaidaEstoque(true);
             }else if(rbEntradaEstoque.isSelected()){
-                tipoMovimentacao.setEntradaEstoque("Entrada Estoque");
+                tipoMovimentacao.setEntradaEstoque(true);
             }
             if(cbFuncionario.isSelected()){
-                tipoMovimentacao.setRequerFuncionario("Requer Funcionario");
+                tipoMovimentacao.setRequerFuncionario(true);
             }
             perTipoMovimentacao.inserirTipoMovimentacao(tipoMovimentacao);
         } else {
             tipoMovimentacao.setidTipoMovimentcao(Integer.parseInt(txtidTipoMovimentacao.getText()));
             tipoMovimentacao.setnmTipoMovimentacao(txtNome.getText());
             tipoMovimentacao.setdscrTipoMovimentacao(txaDescricao.getText());
+           // tipoMovimentacao.setSituacao(true);
+            if(rbSaidaFinanceira.isSelected()){
+                tipoMovimentacao.setSaidaFinanceira(true);
+            }else if(rbEntradaFinanceira.isSelected()){
+                tipoMovimentacao.setEntradaFinanceira(true);
+            }
+            if(rbSaidaEstoque.isSelected()){
+                tipoMovimentacao.setSaidaEstoque(true);
+            }else if(rbEntradaEstoque.isSelected()){
+                tipoMovimentacao.setEntradaEstoque(true);
+            }
+            if(cbFuncionario.isSelected()){
+                tipoMovimentacao.setRequerFuncionario(true);
+            }
             
             perTipoMovimentacao.AlterarTipoMovimentacao(tipoMovimentacao);
             this.getParent(); 
             
             
         }
+        Preencher();
         limpar();
         PreencherTabela();
-        PreencherCombo();
+     //   PreencherCombo();
     }//GEN-LAST:event_bttSalvarActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+
+        Preencher();
         PreencherTabela();
-        PreencherCombo();
+        //PreencherCombo();
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void tblTipoMovimentacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTipoMovimentacaoMouseClicked
-         txtNome.setText(vTabela.getValueAt(tblTipoMovimentacao.getSelectedRow(), 0).toString());
-         txaDescricao.setText(vTabela.getValueAt(tblTipoMovimentacao.getSelectedRow(), 1).toString());
+
+        txtidTipoMovimentacao.setText(vTabela.getValueAt(tblTipoMovimentacao.getSelectedRow(), 2).toString());
+        PerTipoMovimentacao perTipoMovimentacao = new PerTipoMovimentacao();
+        TipoMovimentacao consulta = perTipoMovimentacao.ConsultarTipoMovimentacao(Integer.parseInt(txtidTipoMovimentacao.getText()));
+        txtNome.setText(consulta.getnmTipoMovimentacao());
+        txaDescricao.setText(consulta.getdscrTipoMovimentacao());
+        txtidTipoMovmPai.setText(String.valueOf(consulta.getidTipoMovimentacaoPai()));
+        rbEntradaEstoque.setSelected(consulta.isEntradaEstoque());
+        rbEntradaFinanceira.setSelected(consulta.isEntradaFinanceira());
+        rbSaidaEstoque.setSelected(consulta.isSaidaEstoque());
+        rbSaidaFinanceira.setSelected(consulta.isSaidaFinanceira());
+        cbFuncionario.setSelected(consulta.isRequerFuncionario());
+
+         
     }//GEN-LAST:event_tblTipoMovimentacaoMouseClicked
+
+    private void cmbTipoMovmPaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoMovmPaiActionPerformed
+      PerTipoMovimentacao perTipoMovm=new PerTipoMovimentacao();
+        ArrayList<TipoMovimentacao> tipoMovm=perTipoMovm.TodosTiposMovimentacao();//ArrayList=matriz dinanmica 
+        for(TipoMovimentacao p:tipoMovm){
+            String linha[]=new String[2];
+            linha[0]=String.valueOf(p.getidTipoMovimentacao());
+            linha[1]=p.getnmTipoMovimentacao();
+            if(linha[1].equals(cmbTipoMovmPai.getSelectedItem())){
+                txtidTipoMovmPai.setText(linha[0]);
+            }            
+
+        }
+    }//GEN-LAST:event_cmbTipoMovmPaiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -321,7 +380,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lbDescricao;
+    private javax.swing.JLabel lbDescricao1;
     private javax.swing.JLabel lbQuantidade;
     private javax.swing.JLabel lbTipoMovmFinanceira;
     private javax.swing.JRadioButton rbEntradaEstoque;
@@ -332,15 +391,14 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea txaDescricao;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtidTipoMovimentacao;
+    private javax.swing.JTextField txtidTipoMovmPai;
     // End of variables declaration//GEN-END:variables
 
     private void limpar() {
        txtNome.setText(null);
        txaDescricao.setText(null);
-       rbEntradaEstoque.setSelected(false);
-       rbEntradaFinanceira.setSelected(false);
-       rbSaidaEstoque.setSelected(false);
-       rbSaidaFinanceira.setSelected(false);
+       buttonGroup1.clearSelection();
+       buttonGroup2.clearSelection();
        cbFuncionario.setSelected(false);
     }
 
@@ -372,6 +430,20 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
           cmbPai = new JComboBox<TipoMovimentacao>(model2);
           cmbTipoMovmPai = new JComboBox<Item>(model);
           cmbTipoMovmPai.setRenderer(new ItemRenderer());
+    }
+
+    private void Preencher() {
+     PerTipoMovimentacao perTipoMovmPai=new PerTipoMovimentacao();
+        ArrayList<TipoMovimentacao> tipoMovmPai=perTipoMovmPai.TodosTiposMovimentacao();//ArrayList=matriz dinanmica 
+        for(TipoMovimentacao t:tipoMovmPai){
+            String linha[]=new String[2];
+            linha[0]=String.valueOf(t.getidTipoMovimentacao());
+            linha[1]=t.getnmTipoMovimentacao();
+
+            cmbTipoMovmPai.addItem(linha[1]);
+            txtidTipoMovmPai.setText(linha[0]);
+
+        }
     }
 }
 

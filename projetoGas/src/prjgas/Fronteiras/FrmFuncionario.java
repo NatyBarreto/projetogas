@@ -30,7 +30,6 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         bttDeletar = new javax.swing.JButton();
         txtnmCargoFuncinario = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         bttNovo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFuncionario = new javax.swing.JTable();
@@ -39,7 +38,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(780, 650));
+        setPreferredSize(new java.awt.Dimension(780, 613));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -59,7 +58,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(0, 204, 102));
+        jLabel1.setBackground(new java.awt.Color(0, 153, 102));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,19 +66,20 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         jLabel1.setOpaque(true);
         jLabel1.setPreferredSize(new java.awt.Dimension(360, 45));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 770, 62);
+        jLabel1.setBounds(0, 0, 770, 60);
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Nome:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(20, 90, 89, 30);
+        jLabel16.setBounds(20, 70, 89, 30);
 
         txtnmFuncionario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtnmFuncionario);
-        txtnmFuncionario.setBounds(30, 120, 340, 30);
+        txtnmFuncionario.setBounds(30, 100, 340, 30);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
         bttDeletar.setText("DELETAR");
         bttDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,25 +87,20 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(590, 549, 150, 50);
+        bttDeletar.setBounds(570, 490, 170, 70);
 
         txtnmCargoFuncinario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtnmCargoFuncinario);
-        txtnmCargoFuncinario.setBounds(420, 120, 320, 30);
+        txtnmCargoFuncinario.setBounds(420, 100, 320, 30);
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Cargo:");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(410, 90, 89, 30);
-
-        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Tabela Funcionário");
-        getContentPane().add(jLabel20);
-        jLabel20.setBounds(0, 260, 215, 37);
+        jLabel17.setBounds(410, 70, 89, 30);
 
         bttNovo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/add.png"))); // NOI18N
         bttNovo.setText("NOVO");
         bttNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +108,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(390, 190, 130, 50);
+        bttNovo.setBounds(390, 160, 160, 70);
 
         tblFuncionario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         tblFuncionario.setModel(vTabelaFuncionario);
@@ -125,9 +120,10 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblFuncionario);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 300, 720, 230);
+        jScrollPane1.setBounds(20, 250, 720, 230);
 
         bttSalvar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        bttSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/checked.png"))); // NOI18N
         bttSalvar.setText("SALVAR");
         bttSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,11 +131,11 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(240, 190, 140, 50);
+        bttSalvar.setBounds(220, 160, 165, 70);
 
         txtidFuncionario.setAutoscrolls(false);
         getContentPane().add(txtidFuncionario);
-        txtidFuncionario.setBounds(30, 220, 70, 20);
+        txtidFuncionario.setBounds(40, 170, 70, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,7 +196,6 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblFuncionario;
     private javax.swing.JTextField txtidFuncionario;

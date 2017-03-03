@@ -3,8 +3,8 @@ package prjgas.Modelo;
 public class TipoMovimentacao {
 
     String nmTipoMovimentacao,
-            dscrTipoMovimentacao,
-            situcao,
+            dscrTipoMovimentacao;
+    boolean situcao,
             saidaFinanceira,
             entradaFinanceira,
             saidaEstoque,
@@ -37,11 +37,11 @@ public class TipoMovimentacao {
         this.idTipoMovimentacao = id;
     }
     
-     public String getSituacao() {
+     public boolean isSituacao() {
         return situcao;
     }
 
-    public void setSituacao(String status) {
+    public void setSituacao(boolean status) {
         this.situcao = status;
     }
     
@@ -57,45 +57,46 @@ public class TipoMovimentacao {
     public String toString() {
         return nmTipoMovimentacao;
     }
-    
-    public String getSaidaFinanceira() {
+
+    public boolean isSaidaFinanceira() {
         return saidaFinanceira;
     }
 
-    public void setSaidaFinanceira(String saidaFi) {
-        this.saidaFinanceira = saidaFi;
+    public void setSaidaFinanceira(boolean saidaFinanceira) {
+        this.saidaFinanceira = saidaFinanceira;
     }
-    
-    public String getEntradaFinanceira() {
+
+    public boolean isEntradaFinanceira() {
         return entradaFinanceira;
     }
 
-    public void setEntradaFinanceira(String entradaFi) {
-        this.entradaFinanceira = entradaFi;
+    public void setEntradaFinanceira(boolean entradaFinanceira) {
+        this.entradaFinanceira = entradaFinanceira;
     }
-    
-    public String getSaidaEstoque() {
+
+    public boolean isSaidaEstoque() {
         return saidaEstoque;
     }
 
-    public void setSaidaEstoque(String saidaEs) {
-        this.saidaEstoque = saidaEs;
+    public void setSaidaEstoque(boolean saidaEstoque) {
+        this.saidaEstoque = saidaEstoque;
     }
-    
-    public String getEntradaEstoque() {
+
+    public boolean isEntradaEstoque() {
         return entradaEstoque;
     }
 
-    public void setEntradaEstoque(String entradaEs) {
-        this.entradaEstoque = entradaEs;
+    public void setEntradaEstoque(boolean entradaEstoque) {
+        this.entradaEstoque = entradaEstoque;
     }
-    
-    public String getRequerFuncionario() {
+
+    public boolean isRequerFuncionario() {
         return requerFuncionario;
     }
 
-    public void setRequerFuncionario(String requerFun) {
-        this.requerFuncionario = requerFun;
+    public void setRequerFuncionario(boolean requerFuncionario) {
+        this.requerFuncionario = requerFuncionario;
     }
     
+  
 }
