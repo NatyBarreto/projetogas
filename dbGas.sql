@@ -8,11 +8,11 @@ idTipoMovimentacao int primary key identity(1,1),
 nmTipoMovimentacao varchar(50) not null,
 dscrTipoMovimentacao varchar(100),
 situacao varchar(10)not null,
-saidaFinanceira varchar(20),
-entradaFinanceira varchar(20),
-saidaEstoque varchar(20),
-entradaEstoque varchar(20),
-requerFuncionario varchar(20),
+saidaFinanceira bit,
+entradaFinanceira bit,
+saidaEstoque bit,
+entradaEstoque bit,
+requerFuncionario bit,
 idTipoMovimentacaoPai int)
 aLTER TABLE tbTipoMovimentacao add foreign Key (idTipoMovimentacaoPai) references tbTipoMovimentacao(idTipoMovimentacao)
 
@@ -32,9 +32,9 @@ idMovmEstoque int primary key identity(1,1),
 dtMovmEstoque smalldatetime not null,
 qtdMovmEstoque int not null,
 produto int,
-tipoMovmFinanceira int,
+tipoMovimentacao int,
 foreign Key (produto) references tbProduto on delete cascade,
-foreign Key (tipoMovmFinanceira) references tbTipoMovimentacao on delete cascade)
+foreign Key (tipoMovimentacao) references tbTipoMovimentacao on delete cascade)
 
 create table tbFuncionario(
 idFuncionario int primary key identity(1,1),
