@@ -21,7 +21,7 @@ public class PerMovimentacaoEstoque{
             pst=conn.prepareStatement(SQL);
             pst.clearParameters();
             
-            pst.setDate(1,estoque.getdtMovmEstoque());
+            pst.setString(1,estoque.getdtMovmEstoque());
             pst.setInt(2,estoque.getqtdMovmEstoque());
             pst.setInt(3,estoque.getproduto());
             pst.setInt(4,estoque.getTipoMovimentacao());
@@ -45,7 +45,7 @@ public class PerMovimentacaoEstoque{
             while (rs.next()) {
                 MovimentacaoEstoque estoque = new MovimentacaoEstoque();
                 estoque.setidMovmEstoque(rs.getInt(1));
-                estoque.setdtMovmEstoque(rs.getDate(2));
+                estoque.setdtMovmEstoque(rs.getString(2));
                 estoque.setqtdMovmEstoque(rs.getInt(3));
                 estoque.setproduto(rs.getInt(4));
                 estoque.setTipoMovimentacao(rs.getInt(3));
@@ -84,7 +84,7 @@ public class PerMovimentacaoEstoque{
             conn = Conexao.getConexao();
 
             pst = conn.prepareStatement(SQL);
-            pst.setDate(1, estoque.getdtMovmEstoque());
+            pst.setString(1, estoque.getdtMovmEstoque());
             pst.setInt(2, estoque.getqtdMovmEstoque());
             pst.setInt(3, estoque.getproduto());
             pst.setInt(4, estoque.getTipoMovimentacao());

@@ -1,22 +1,18 @@
 package prjgas.Modelo;
 
-import java.sql.Date;
-
-
-
 public class MovimentacaoEstoque {
 
-    Date dtMovmEstoque;
+    String dtMovmEstoque;
     int qtdMovmEstoque,
             produto,
             tipoMovimentacao,
             idMovmEstoque;
 
-    public Date getdtMovmEstoque() {
+    public String getdtMovmEstoque() {
         return dtMovmEstoque;
     }
 
-    public void setdtMovmEstoque(Date data) {
+    public void setdtMovmEstoque(String data) {
         this.dtMovmEstoque = data;
     }
 

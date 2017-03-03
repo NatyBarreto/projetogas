@@ -1,6 +1,5 @@
 package prjgas.Fronteiras;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -184,15 +183,14 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
       PerMovimentacaoEstoque perMovmEstoque=new PerMovimentacaoEstoque();
         if(txtidMovmEstoque.getText().length()==0){ 
         
-        estoque.setdtMovmEstoque(Date.valueOf(txtData.getText()));
+        estoque.setdtMovmEstoque(txtData.getText());
         estoque.setproduto(Integer.parseInt(txtidProduto.getText()));
         estoque.setqtdMovmEstoque(Integer.parseInt(txtQuantidade.getText()));
         estoque.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText()));
 
         perMovmEstoque.inserirMovimentacaoEstoque(estoque);
       }else{
-        estoque.setidMovmEstoque(Integer.parseInt(txtidMovmEstoque.getText()));
-        estoque.setdtMovmEstoque(Date.valueOf(txtData.getText()));
+        estoque.setdtMovmEstoque(txtData.getText());
         estoque.setproduto(Integer.parseInt(txtidProduto.getText()));
         estoque.setqtdMovmEstoque(Integer.parseInt(txtQuantidade.getText()));
         estoque.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText())); 
@@ -244,8 +242,8 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
     private void tblMovmEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMovmEstoqueMouseClicked
         txtData.setText(vTabela.getValueAt(tblMovmEstoque.getSelectedRow(), 0).toString());
         txtQuantidade.setText(vTabela.getValueAt(tblMovmEstoque.getSelectedRow(), 1).toString());
-      //  cmbProduto.setSelectedItem(vTabela.getValueAt(tblMovmEstoque.getSelectedRow(), 2).toString());
-       // cmbTipoMovm.setSelectedItem(vTabela.getValueAt(tblMovmEstoque.getSelectedRow(), 3).toString());
+        cmbProduto.setSelectedItem(vTabela.getValueAt(tblMovmEstoque.getSelectedRow(), 2).toString());
+        cmbTipoMovm.setSelectedItem(vTabela.getValueAt(tblMovmEstoque.getSelectedRow(), 3).toString());
         txtidMovmEstoque.setText(vTabela.getValueAt(tblMovmEstoque.getSelectedRow(), 4).toString());
         
     }//GEN-LAST:event_tblMovmEstoqueMouseClicked
@@ -314,7 +312,7 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
 
             String linha[] = new String[5];
 
-            linha[0] = String.valueOf(m.getdtMovmEstoque());
+            linha[0] = m.getdtMovmEstoque();
             linha[1] = String.valueOf(m.getqtdMovmEstoque());
             linha[2] = String.valueOf(m.getproduto());
             linha[3] = String.valueOf(m.getTipoMovimentacao());

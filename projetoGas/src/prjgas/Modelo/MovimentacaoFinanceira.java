@@ -1,33 +1,21 @@
 package prjgas.Modelo;
 
-import java.sql.Date;
-
 public class MovimentacaoFinanceira {
-    Date    dtMovmFinanceira;
-    String  dscrMovmFinanceira;
-    double  vlMovmFinanceira;
-    int     tipoMovimentacao,
-            movimentacaoEstoque,
-            funcionario,
-            idMovmFinanceira;
-
-    public int getIdMovmFinanceira() {
-        return idMovmFinanceira;
-    }
-
-    public void setIdMovmFinanceira(int idMovmFinanceira) {
-        this.idMovmFinanceira = idMovmFinanceira;
-    }
-
-    public Date getDtMovmFinanceira() {
+    String dtMovmFinanceira,
+           dscrMovmFinanceira;
+    double vlMovmFinanceira;
+    int tipoMovmFinanceira,
+        movimentacaoEstoque,
+        funcionario; 
+    
+    public String getdtMovmFinanceira() {
         return dtMovmFinanceira;
     }
 
-    public void setDtMovmFinanceira(Date dtMovmFinanceira) {
-        this.dtMovmFinanceira = dtMovmFinanceira;
+    public void setdtMovmFinanceira(String data) {
+        this.dtMovmFinanceira = data;
     }
     
-  
     public String getdscrMovmFinanceira() {
         return dscrMovmFinanceira;
     }
@@ -43,16 +31,14 @@ public class MovimentacaoFinanceira {
     public void setvlMovmFinanceira(double movm) {
         this.vlMovmFinanceira = movm;
     }
-
-    public int getTipoMovimentacao() {
-        return tipoMovimentacao;
-    }
-
-    public void setTipoMovimentacao(int tipoMovimentacao) {
-        this.tipoMovimentacao = tipoMovimentacao;
-    }
     
-  
+    public int gettipoMovmFinanceira() {
+        return tipoMovmFinanceira;
+    }
+
+    public void settipoMovmFinanceira(int tipo) {
+        this.tipoMovmFinanceira = tipo;
+    }
     
      public int getmovimentacaoEstoque() {
         return movimentacaoEstoque;
