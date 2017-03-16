@@ -72,13 +72,11 @@ public class PerFuncionario {
     }
      
       public boolean AlterarFuncionario(Funcionario funcionario) {
-
-        String SQL = "update tbFuncionario set nmFuncionario =?,nmCargoFuncionario =? where idFuncionario =?";
+        String SQL = "update tbFuncionario set nmFuncionario=?,nmCargoFuncionario=? where idFuncionario=?";
         Connection conn = null;
         PreparedStatement pst = null;
         try {
             conn = Conexao.getConexao();
-
             pst = conn.prepareStatement(SQL);
             pst.setString(1,funcionario.getnmFuncionario());
             pst.setString(2, funcionario.getnmCargoFuncionario());
@@ -90,6 +88,7 @@ public class PerFuncionario {
         } JOptionPane.showMessageDialog(null,"Alterado com sucesso");
         return true;
     }
+      
        public String FuncionarioPorNome(String Fun){
         String sql="select idFuncionario from tbFuncionariowhere nmFuncionario = '"+Fun+"'";
         String Funci="";

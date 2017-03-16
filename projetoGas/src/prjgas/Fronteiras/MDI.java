@@ -143,7 +143,7 @@ public class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_MovimentacaoEstoqueActionPerformed
 
     private void MovimentacaoFinanceiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovimentacaoFinanceiraActionPerformed
-        FrmMovimentacaoFinanceira financeira=new FrmMovimentacaoFinanceira();
+        FrmMovimentacao financeira=new FrmMovimentacao();
         painel.add(financeira);
         financeira.show();
     }//GEN-LAST:event_MovimentacaoFinanceiraActionPerformed

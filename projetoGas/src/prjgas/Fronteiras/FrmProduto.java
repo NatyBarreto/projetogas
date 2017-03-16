@@ -18,7 +18,10 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         vTabelaProduto.addColumn("idProduto");
 
         txtidProduto.setVisible(false);
-
+        
+        tblProduto.getColumnModel().getColumn(2).setMinWidth(0);
+        tblProduto.getColumnModel().getColumn(2).setPreferredWidth(0);
+        tblProduto.getColumnModel().getColumn(2).setMaxWidth(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -50,7 +53,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setPreferredSize(new java.awt.Dimension(897, 563));
+        setPreferredSize(new java.awt.Dimension(839, 490));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -77,23 +80,23 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         jLabel1.setText("Produto");
         jLabel1.setOpaque(true);
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 890, 62);
+        jLabel1.setBounds(0, 0, 830, 62);
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Descrição:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(510, 90, 109, 30);
+        jLabel16.setBounds(450, 80, 109, 30);
 
         txtnmProduto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtnmProduto);
-        txtnmProduto.setBounds(30, 120, 380, 30);
+        txtnmProduto.setBounds(30, 110, 380, 30);
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Nome:");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(10, 90, 104, 30);
+        jLabel17.setBounds(10, 80, 104, 30);
 
         txadscrProduto.setColumns(20);
         txadscrProduto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -101,7 +104,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(txadscrProduto);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(510, 120, 360, 100);
+        jScrollPane1.setBounds(450, 110, 360, 80);
 
         bttNovo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/add.png"))); // NOI18N
@@ -112,7 +115,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(450, 250, 160, 70);
+        bttNovo.setBounds(420, 200, 160, 70);
 
         jInternalFrame1.setClosable(true);
         jInternalFrame1.setIconifiable(true);
@@ -170,7 +173,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(270, 250, 170, 70);
+        bttSalvar.setBounds(240, 200, 170, 70);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
@@ -181,7 +184,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(680, 420, 190, 70);
+        bttDeletar.setBounds(610, 370, 190, 70);
 
         jScrollPane3.setPreferredSize(new java.awt.Dimension(700, 900));
         jScrollPane3.setRequestFocusEnabled(false);
@@ -197,7 +200,7 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(tblProduto);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(20, 340, 640, 150);
+        jScrollPane3.setBounds(20, 290, 570, 150);
 
         txtidProduto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtidProduto);
@@ -214,24 +217,30 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         Produto classeproduto = new Produto();
         PerProduto perproduto = new PerProduto();
         if (txtidProduto.getText().length() == 0) {
-            classeproduto.setnmProduto(txtnmProduto.getText());
-            classeproduto.setdscrProduto(txadscrProduto.getText());
-            
-            perproduto.inserirProduto(classeproduto);
-            
-        } else {
+            if (txtnmProduto.getText().length() != 0) {
+                classeproduto.setnmProduto(txtnmProduto.getText());
+                classeproduto.setdscrProduto(txadscrProduto.getText());
+
+                perproduto.inserirProduto(classeproduto);
+            } else {
+                JOptionPane.showMessageDialog(null, "Preencha corretamente os campos!");
+            }
+        } else if (txtnmProduto.getText().length() != 0) {
             classeproduto.setidProduto(Integer.parseInt(txtidProduto.getText()));
             classeproduto.setnmProduto(txtnmProduto.getText());
             classeproduto.setdscrProduto(txadscrProduto.getText());
 
             perproduto.AlterarProduto(classeproduto);
             this.getParent();
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha corretamente os campos!");
         }
         Limpar();
         PreencherTabelaProduto();
     }//GEN-LAST:event_bttSalvarActionPerformed
 
     private void bttDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDeletarActionPerformed
+      if(txtidProduto.getText().length()!=0){
         PerProduto perProduto = new PerProduto();
         int idProduto = Integer.parseInt(vTabelaProduto.getValueAt(tblProduto.getSelectedRow(), 2) + "");
         perProduto.deletarProduto(idProduto);
@@ -239,6 +248,9 @@ public class FrmProduto extends javax.swing.JInternalFrame {
 
         JOptionPane.showMessageDialog(this, "Registro deletado com sucesso!");
         Limpar();
+      }else{
+         JOptionPane.showMessageDialog(this, "Selecione um produto na tabela para poder deletá-lo."); 
+      }
     }//GEN-LAST:event_bttDeletarActionPerformed
 
     private void bttProduto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttProduto1ActionPerformed

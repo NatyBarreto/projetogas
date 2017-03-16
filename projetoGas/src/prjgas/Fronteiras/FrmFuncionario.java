@@ -18,6 +18,10 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
          
                 
          txtidFuncionario.setVisible(false);
+         
+        tblFuncionario.getColumnModel().getColumn(2).setMinWidth(0);
+        tblFuncionario.getColumnModel().getColumn(2).setPreferredWidth(0);
+        tblFuncionario.getColumnModel().getColumn(2).setMaxWidth(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -38,7 +42,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(780, 613));
+        setPreferredSize(new java.awt.Dimension(780, 498));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -87,7 +91,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(570, 490, 170, 70);
+        bttDeletar.setBounds(580, 380, 170, 70);
 
         txtnmCargoFuncinario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtnmCargoFuncinario);
@@ -120,7 +124,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblFuncionario);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 250, 720, 230);
+        jScrollPane1.setBounds(20, 250, 540, 200);
 
         bttSalvar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/checked.png"))); // NOI18N
@@ -149,18 +153,23 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         Funcionario funcionario = new Funcionario();
         PerFuncionario perFuncionario = new PerFuncionario();
         if (txtidFuncionario.getText().length() == 0) {
-            funcionario.setnmFuncionario(txtnmFuncionario.getText());
-            funcionario.setnmCargoFuncionario(txtnmCargoFuncinario.getText());
-            perFuncionario.inserirFuncionario(funcionario);
-        } else {
+            if (txtnmFuncionario.getText().length() != 0) {
+                funcionario.setnmFuncionario(txtnmFuncionario.getText());
+                funcionario.setnmCargoFuncionario(txtnmCargoFuncinario.getText());
+                perFuncionario.inserirFuncionario(funcionario);
+            } else {
+                JOptionPane.showMessageDialog(null, "Preencha corretamente os campos");
+            }
+        } else if (txtnmFuncionario.getText().length() != 0) {
             funcionario.setidFuncionario(Integer.parseInt(txtidFuncionario.getText()));
             funcionario.setnmFuncionario(txtnmFuncionario.getText());
             funcionario.setnmCargoFuncionario(txtnmCargoFuncinario.getText());
-            
+
             perFuncionario.AlterarFuncionario(funcionario);
-            this.getParent(); 
-            
-            
+            this.getParent();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha corretamente os campos");
         }
         Limpar();
         PreencherTabelaFuncionario();
@@ -179,6 +188,7 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblFuncionarioMouseClicked
 
     private void bttDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDeletarActionPerformed
+     if(txtidFuncionario.getText().length()!=0){  
         PerFuncionario perFuncionario= new PerFuncionario();    
         int idFuncionario = Integer.parseInt(vTabelaFuncionario.getValueAt(tblFuncionario.getSelectedRow(), 2) + "");
         perFuncionario.deletarFuncionario(idFuncionario);
@@ -186,6 +196,9 @@ public class FrmFuncionario extends javax.swing.JInternalFrame {
         
         JOptionPane.showMessageDialog(this, "Registro deletado com sucesso!");
         Limpar();
+     }else{
+        JOptionPane.showMessageDialog(this, "Selecione um funcionário na tabela para poder deletá-lo.");
+     }
     }//GEN-LAST:event_bttDeletarActionPerformed
 
 

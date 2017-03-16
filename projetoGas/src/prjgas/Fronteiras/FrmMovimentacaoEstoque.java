@@ -1,6 +1,13 @@
 package prjgas.Fronteiras;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import prjgas.Modelo.MovimentacaoEstoque;
@@ -25,6 +32,10 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
         txtidMovmEstoque.setVisible(false);
         txtidProduto.setVisible(false);
         txtidTipoMovm.setVisible(false);
+        
+        tblMovmEstoque.getColumnModel().getColumn(4).setMinWidth(0);
+        tblMovmEstoque.getColumnModel().getColumn(4).setPreferredWidth(0);
+        tblMovmEstoque.getColumnModel().getColumn(4).setMaxWidth(0);
     }
 
   
@@ -34,9 +45,7 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        txtData = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        txtQuantidade = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         bttSalvar = new javax.swing.JButton();
@@ -49,10 +58,12 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
         txtidMovmEstoque = new javax.swing.JTextField();
         txtidProduto = new javax.swing.JTextField();
         txtidTipoMovm = new javax.swing.JTextField();
+        txtData = new javax.swing.JFormattedTextField();
+        txtQuantidade = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(683, 631));
+        setPreferredSize(new java.awt.Dimension(683, 575));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -85,17 +96,13 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Data:");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(30, 80, 70, 30);
-        getContentPane().add(txtData);
-        txtData.setBounds(40, 110, 230, 29);
+        jLabel17.setBounds(10, 80, 70, 30);
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Quantidade:");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(40, 160, 120, 31);
-        getContentPane().add(txtQuantidade);
-        txtQuantidade.setBounds(40, 190, 230, 28);
+        jLabel18.setBounds(20, 160, 120, 31);
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -118,7 +125,7 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(150, 240, 170, 70);
+        bttSalvar.setBounds(140, 240, 170, 70);
 
         cmbTipoMovm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,8 +152,9 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(330, 240, 160, 70);
+        bttNovo.setBounds(320, 240, 160, 70);
 
+        tblMovmEstoque.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         tblMovmEstoque.setModel(vTabela);
         tblMovmEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -156,7 +164,7 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblMovmEstoque);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 330, 610, 170);
+        jScrollPane1.setBounds(10, 330, 460, 200);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
@@ -167,13 +175,27 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(470, 520, 170, 70);
+        bttDeletar.setBounds(480, 460, 170, 70);
         getContentPane().add(txtidMovmEstoque);
-        txtidMovmEstoque.setBounds(0, 60, 60, 30);
+        txtidMovmEstoque.setBounds(20, 270, 60, 30);
         getContentPane().add(txtidProduto);
         txtidProduto.setBounds(310, 110, 60, 30);
         getContentPane().add(txtidTipoMovm);
         txtidTipoMovm.setBounds(310, 190, 60, 30);
+
+        try {
+            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(txtData);
+        txtData.setBounds(20, 110, 250, 30);
+
+        txtQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtQuantidade.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(txtQuantidade);
+        txtQuantidade.setBounds(20, 190, 250, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -182,15 +204,29 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
       MovimentacaoEstoque estoque = new MovimentacaoEstoque();
       PerMovimentacaoEstoque perMovmEstoque=new PerMovimentacaoEstoque();
         if(txtidMovmEstoque.getText().length()==0){ 
-        
-        estoque.setdtMovmEstoque(txtData.getText());
+            DateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
+           
+            java.sql.Date dataSQL = null;
+          try {
+              Date data =  dataFormato.parse(txtData.getText());
+              dataSQL = new java.sql.Date(data.getTime());
+              
+               
+          } catch (ParseException ex) {
+              Logger.getLogger(FrmMovimentacaoEstoque.class.getName()).log(Level.SEVERE, null, ex);
+          }
+         
+            estoque.setDtMovmEstoque(dataSQL);
+            
+                  
         estoque.setproduto(Integer.parseInt(txtidProduto.getText()));
         estoque.setqtdMovmEstoque(Integer.parseInt(txtQuantidade.getText()));
         estoque.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText()));
 
         perMovmEstoque.inserirMovimentacaoEstoque(estoque);
       }else{
-        estoque.setdtMovmEstoque(txtData.getText());
+        estoque.setidMovmEstoque(Integer.parseInt(txtidMovmEstoque.getText()));
+        //estoque.setDtMovmEstoque(Date.valueOf(txtData.getText()));
         estoque.setproduto(Integer.parseInt(txtidProduto.getText()));
         estoque.setqtdMovmEstoque(Integer.parseInt(txtQuantidade.getText()));
         estoque.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText())); 
@@ -290,8 +326,8 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblMovmEstoque;
-    private javax.swing.JTextField txtData;
-    private javax.swing.JTextField txtQuantidade;
+    private javax.swing.JFormattedTextField txtData;
+    private javax.swing.JFormattedTextField txtQuantidade;
     private javax.swing.JTextField txtidMovmEstoque;
     private javax.swing.JTextField txtidProduto;
     private javax.swing.JTextField txtidTipoMovm;
@@ -311,8 +347,10 @@ public class FrmMovimentacaoEstoque extends javax.swing.JInternalFrame {
         for (MovimentacaoEstoque m : classeMovmEstoque) {
 
             String linha[] = new String[5];
+                        
+             DateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
 
-            linha[0] = m.getdtMovmEstoque();
+            linha[0] = dataFormato.format(m.getDtMovmEstoque());;
             linha[1] = String.valueOf(m.getqtdMovmEstoque());
             linha[2] = String.valueOf(m.getproduto());
             linha[3] = String.valueOf(m.getTipoMovimentacao());

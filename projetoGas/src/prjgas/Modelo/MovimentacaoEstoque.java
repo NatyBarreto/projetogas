@@ -1,19 +1,22 @@
 package prjgas.Modelo;
 
+import java.sql.Date;
+import java.text.DateFormat;
+
 public class MovimentacaoEstoque {
 
-    String dtMovmEstoque;
+    Date dtMovmEstoque;
     int qtdMovmEstoque,
             produto,
             tipoMovimentacao,
             idMovmEstoque;
 
-    public String getdtMovmEstoque() {
+    public Date getDtMovmEstoque() {
         return dtMovmEstoque;
     }
 
-    public void setdtMovmEstoque(String data) {
-        this.dtMovmEstoque = data;
+    public void setDtMovmEstoque(Date dtMovmEstoque) {
+        this.dtMovmEstoque = dtMovmEstoque;
     }
 
     public int getqtdMovmEstoque() {
@@ -47,4 +50,5 @@ public class MovimentacaoEstoque {
     public void setidMovmEstoque(int estoque) {
         this.idMovmEstoque = estoque;
     }
+
 }

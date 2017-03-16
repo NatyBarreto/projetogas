@@ -1,21 +1,33 @@
 package prjgas.Modelo;
 
+import java.sql.Date;
+
 public class MovimentacaoFinanceira {
-    String dtMovmFinanceira,
-           dscrMovmFinanceira;
+
+    Date dtMovmFinanceira;
+    String dscrMovmFinanceira;
     double vlMovmFinanceira;
-    int tipoMovmFinanceira,
-        movimentacaoEstoque,
-        funcionario; 
-    
-    public String getdtMovmFinanceira() {
+    int tipoMovimentacao,
+            movimentacaoEstoque,
+            funcionario,
+            idMovmFInanceira;
+
+    public Date getDtMovmFinanceira() {
         return dtMovmFinanceira;
     }
 
-    public void setdtMovmFinanceira(String data) {
-        this.dtMovmFinanceira = data;
+    public void setDtMovmFinanceira(Date dtMovmFinanceira) {
+        this.dtMovmFinanceira = dtMovmFinanceira;
     }
-    
+
+    public int getIdMovmFInanceira() {
+        return idMovmFInanceira;
+    }
+
+    public void setIdMovmFInanceira(int idMovmFInanceira) {
+        this.idMovmFInanceira = idMovmFInanceira;
+    }
+
     public String getdscrMovmFinanceira() {
         return dscrMovmFinanceira;
     }
@@ -23,7 +35,7 @@ public class MovimentacaoFinanceira {
     public void setdscrMovmFinanceira(String dscr) {
         this.dscrMovmFinanceira = dscr;
     }
-    
+
     public double getvlMovmFinanceira() {
         return vlMovmFinanceira;
     }
@@ -31,30 +43,29 @@ public class MovimentacaoFinanceira {
     public void setvlMovmFinanceira(double movm) {
         this.vlMovmFinanceira = movm;
     }
-    
-    public int gettipoMovmFinanceira() {
-        return tipoMovmFinanceira;
+
+    public int getTipoMovimentacao() {
+        return tipoMovimentacao;
     }
 
-    public void settipoMovmFinanceira(int tipo) {
-        this.tipoMovmFinanceira = tipo;
+    public void setTipoMovimentacao(int tipoMovimentacao) {
+        this.tipoMovimentacao = tipoMovimentacao;
     }
-    
-     public int getmovimentacaoEstoque() {
+
+    public int getmovimentacaoEstoque() {
         return movimentacaoEstoque;
     }
 
     public void setmovimentacaoEstoque(int estoque) {
         this.movimentacaoEstoque = estoque;
     }
-    
-     public int getfuncionario() {
+
+    public int getfuncionario() {
         return funcionario;
     }
 
     public void setfuncionario(int funcionario) {
         this.funcionario = funcionario;
     }
-    
-    
+
 }

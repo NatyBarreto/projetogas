@@ -88,7 +88,7 @@ public class PerTipoMovimentacao {
      
       public boolean AlterarTipoMovimentacao(TipoMovimentacao tipo) {
 
-        String SQL = "update tbTipoMovimentacao set nmTipoMovimentacao=?,dscrTipoMovimentacao =?, situacao=?,saidaFinanceira=?,entradaFinanceira=?,saidaEstoque=?,entradaEstoque=?,requerFuncionario=?,idTipoMovimentacaoPai=? where idTipoMovimentacao =?";
+        String SQL = "update tbTipoMovimentacao set nmTipoMovimentacao=?,dscrTipoMovimentacao=?, situacao=?,saidaFinanceira=?,entradaFinanceira=?,saidaEstoque=?,entradaEstoque=?,requerFuncionario=?,idTipoMovimentacaoPai=? where idTipoMovimentacao=?";
         Connection conn = null;
         PreparedStatement pst = null;
         try {
@@ -146,5 +146,31 @@ public class PerTipoMovimentacao {
         }
             
         return tipoMovm;
+    }
+       
+    public boolean AlterarSituacao(TipoMovimentacao situacao) {
+
+        String SQL = "update tbTipoMovimentacao set  situacao=? where idTipoMovimentacao=?";
+        Connection conn = null;
+        PreparedStatement pst = null;
+        try {
+           
+            conn = Conexao.getConexao();
+            pst = conn.prepareStatement(SQL); 
+           
+            pst.setBoolean(1, situacao.isSituacao());
+            pst.setInt(2, situacao.getidTipoMovimentacao());
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão ao alterar: " + e.getMessage(), "ERRO", 0);
+            return false;
+        }
+      if(situacao.isSituacao()){
+          JOptionPane.showMessageDialog(null,"Ativado!");
+          
+      }else{
+          JOptionPane.showMessageDialog(null,"Desativado!");
+      }
+        return true;
     }
 }
