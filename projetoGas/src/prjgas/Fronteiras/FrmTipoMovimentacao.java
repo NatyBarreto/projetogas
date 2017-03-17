@@ -169,7 +169,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         getContentPane().add(bttSalvar);
         bttSalvar.setBounds(440, 260, 170, 70);
 
-        buttonGroup1.add(rbEntradaEstoque);
+        buttonGroup2.add(rbEntradaEstoque);
         rbEntradaEstoque.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         rbEntradaEstoque.setText("Entrada de Estoque");
         getContentPane().add(rbEntradaEstoque);
@@ -187,7 +187,7 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         getContentPane().add(rbEntradaFinanceira);
         rbEntradaFinanceira.setBounds(30, 270, 190, 40);
 
-        buttonGroup2.add(rbSaidaEstoque);
+        buttonGroup1.add(rbSaidaEstoque);
         rbSaidaEstoque.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         rbSaidaEstoque.setText("Saída de Estoque");
         getContentPane().add(rbSaidaEstoque);
@@ -370,12 +370,17 @@ public class FrmTipoMovimentacao extends javax.swing.JInternalFrame {
         TipoMovimentacao consulta = perTipoMovimentacao.ConsultarTipoMovimentacao(Integer.parseInt(txtidTipoMovimentacao.getText()));
         txtNome.setText(consulta.getnmTipoMovimentacao());
         txaDescricao.setText(consulta.getdscrTipoMovimentacao());
+        
         txtidTipoMovmPai.setText(String.valueOf(consulta.getidTipoMovimentacaoPai()));
+        TipoMovimentacao idTipoMovmPai = perTipoMovimentacao.ConsultarTipoMovimentacao(Integer.parseInt(txtidTipoMovmPai.getText()));
+        cmbTipoMovmPai.setSelectedItem(idTipoMovmPai.getnmTipoMovimentacao());
+    
         rbEntradaEstoque.setSelected(consulta.isEntradaEstoque());
         rbEntradaFinanceira.setSelected(consulta.isEntradaFinanceira());
         rbSaidaEstoque.setSelected(consulta.isSaidaEstoque());
         rbSaidaFinanceira.setSelected(consulta.isSaidaFinanceira());
         cbFuncionario.setSelected(consulta.isRequerFuncionario());
+        
 
          
     }//GEN-LAST:event_tblTipoMovimentacaoMouseClicked

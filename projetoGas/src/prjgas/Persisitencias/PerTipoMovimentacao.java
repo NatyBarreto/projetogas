@@ -118,16 +118,16 @@ public class PerTipoMovimentacao {
         return true;
     }
       
-       public TipoMovimentacao ConsultarTipoMovimentacao(int tipo){
-        String sql="select nmTipoMovimentacao,dscrTipoMovimentacao,situacao,saidaFinanceira,entradaFinanceira,saidaEstoque,entradaEstoque,requerFuncionario,idTipoMovimentacaoPai from tbTipoMovimentacao where idTipoMovimentacao="+tipo+"";
-        TipoMovimentacao tipoMovm=new  TipoMovimentacao();
-        try{
-            Connection conn=Conexao.getConexao();
+    public TipoMovimentacao ConsultarTipoMovimentacao(int tipo) {
+        String sql = "select nmTipoMovimentacao,dscrTipoMovimentacao,situacao,saidaFinanceira,entradaFinanceira,saidaEstoque,entradaEstoque,requerFuncionario,idTipoMovimentacaoPai from tbTipoMovimentacao where idTipoMovimentacao=" + tipo + "";
+        TipoMovimentacao tipoMovm = new TipoMovimentacao();
+        try {
+            Connection conn = Conexao.getConexao();
             PreparedStatement prepared;
             ResultSet resultset;//guarda dados vindos do banco de dados ou da interface 
-            prepared=conn.prepareStatement(sql);
-            resultset=prepared.executeQuery(); //faz a consulta
-            if(resultset.next()){
+            prepared = conn.prepareStatement(sql);
+            resultset = prepared.executeQuery(); //faz a consulta
+            if (resultset.next()) {
                 tipoMovm.setnmTipoMovimentacao(resultset.getString(1));
                 tipoMovm.setdscrTipoMovimentacao(resultset.getString(2));
                 tipoMovm.setSituacao(resultset.getBoolean(3));
@@ -139,12 +139,12 @@ public class PerTipoMovimentacao {
                 tipoMovm.setidTipoMovimentcaoPai(resultset.getInt(9));
             }
             conn.close();//fechar conexao
-        }catch(SQLException e){
-            
-            System.out.println("Erro ao localizar dados"+e.toString());
-          return null; 
+        } catch (SQLException e) {
+
+            System.out.println("Erro ao localizar dados" + e.toString());
+            return null;
         }
-            
+
         return tipoMovm;
     }
        

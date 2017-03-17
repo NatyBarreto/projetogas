@@ -15,10 +15,8 @@ public class MDI extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Funcionario = new javax.swing.JMenuItem();
-        Produto = new javax.swing.JMenuItem();
-        Salario = new javax.swing.JMenuItem();
-        MovimentacaoEstoque = new javax.swing.JMenuItem();
         MovimentacaoFinanceira = new javax.swing.JMenuItem();
+        Produto = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
@@ -40,6 +38,7 @@ public class MDI extends javax.swing.JFrame {
         jMenu1.setText("Entrada de Dados");
         jMenu1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
 
+        Funcionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         Funcionario.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         Funcionario.setText("Funcionário");
         Funcionario.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +48,17 @@ public class MDI extends javax.swing.JFrame {
         });
         jMenu1.add(Funcionario);
 
+        MovimentacaoFinanceira.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        MovimentacaoFinanceira.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        MovimentacaoFinanceira.setText("Movimentação");
+        MovimentacaoFinanceira.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MovimentacaoFinanceiraActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MovimentacaoFinanceira);
+
+        Produto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         Produto.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         Produto.setText("Produto");
         Produto.addActionListener(new java.awt.event.ActionListener() {
@@ -58,33 +68,7 @@ public class MDI extends javax.swing.JFrame {
         });
         jMenu1.add(Produto);
 
-        Salario.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        Salario.setText("Salário");
-        Salario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalarioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(Salario);
-
-        MovimentacaoEstoque.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        MovimentacaoEstoque.setText("Movimentação Estoque");
-        MovimentacaoEstoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MovimentacaoEstoqueActionPerformed(evt);
-            }
-        });
-        jMenu1.add(MovimentacaoEstoque);
-
-        MovimentacaoFinanceira.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        MovimentacaoFinanceira.setText("Movimentação Financeira");
-        MovimentacaoFinanceira.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MovimentacaoFinanceiraActionPerformed(evt);
-            }
-        });
-        jMenu1.add(MovimentacaoFinanceira);
-
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jMenuItem1.setText("Tipo de Movimentação");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -130,22 +114,10 @@ public class MDI extends javax.swing.JFrame {
         produto.show();
     }//GEN-LAST:event_ProdutoActionPerformed
 
-    private void SalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalarioActionPerformed
-        FrmSalario salario=new FrmSalario();
-        painel.add(salario);
-        salario.show();
-    }//GEN-LAST:event_SalarioActionPerformed
-
-    private void MovimentacaoEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovimentacaoEstoqueActionPerformed
-       FrmMovimentacaoEstoque estoque=new FrmMovimentacaoEstoque();
-       painel.add(estoque);
-       estoque.show();
-    }//GEN-LAST:event_MovimentacaoEstoqueActionPerformed
-
     private void MovimentacaoFinanceiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovimentacaoFinanceiraActionPerformed
-        FrmMovimentacao financeira=new FrmMovimentacao();
-        painel.add(financeira);
-        financeira.show();
+        FrmMovimentacao movimentacao=new FrmMovimentacao();
+        painel.add(movimentacao);
+        movimentacao.show();
     }//GEN-LAST:event_MovimentacaoFinanceiraActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -191,10 +163,8 @@ public class MDI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Funcionario;
-    private javax.swing.JMenuItem MovimentacaoEstoque;
     private javax.swing.JMenuItem MovimentacaoFinanceira;
     private javax.swing.JMenuItem Produto;
-    private javax.swing.JMenuItem Salario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

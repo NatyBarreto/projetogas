@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import prjgas.Modelo.Funcionario;
-import prjgas.Modelo.MovimentacaoFinanceira;
+import prjgas.Modelo.Movimentacao;
 import prjgas.Modelo.Produto;
 import prjgas.Modelo.TipoMovimentacao;
 import prjgas.Persisitencias.PerFuncionario;
@@ -34,9 +34,9 @@ DefaultTableModel vTabela=new DefaultTableModel();
         txtIdMovimentacao.setVisible(false);
         txtidProduto.setVisible(false);
         
-        tblMovmFinanceira.getColumnModel().getColumn(3).setMinWidth(0);
-        tblMovmFinanceira.getColumnModel().getColumn(3).setPreferredWidth(0);
-        tblMovmFinanceira.getColumnModel().getColumn(3).setMaxWidth(0);
+        tblMovimentacao.getColumnModel().getColumn(3).setMinWidth(0);
+        tblMovimentacao.getColumnModel().getColumn(3).setPreferredWidth(0);
+        tblMovimentacao.getColumnModel().getColumn(3).setMaxWidth(0);
         
       
     }
@@ -51,7 +51,7 @@ DefaultTableModel vTabela=new DefaultTableModel();
         lbData = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txadscrMovmFinanceira = new javax.swing.JTextArea();
+        txadscrMovimentacao = new javax.swing.JTextArea();
         lbFuncionario = new javax.swing.JLabel();
         cmbFuncionario = new javax.swing.JComboBox<>();
         bttSalvar = new javax.swing.JButton();
@@ -59,21 +59,21 @@ DefaultTableModel vTabela=new DefaultTableModel();
         cmbTipoMovimentacao = new javax.swing.JComboBox<>();
         txtidTipoMovm = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblMovmFinanceira = new javax.swing.JTable();
+        tblMovimentacao = new javax.swing.JTable();
         bttDeletar = new javax.swing.JButton();
         txtidFuncionario = new javax.swing.JTextField();
         txtIdMovimentacao = new javax.swing.JTextField();
         txtData = new javax.swing.JFormattedTextField();
-        txtValor = new javax.swing.JFormattedTextField();
         lbQuantidade = new javax.swing.JLabel();
-        txtQuantidade = new javax.swing.JFormattedTextField();
         lbProduto = new javax.swing.JLabel();
         txtidProduto = new javax.swing.JTextField();
         cmbProduto = new javax.swing.JComboBox<>();
+        txtValor = new javax.swing.JTextField();
+        txtQuantidade = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(798, 614));
+        setPreferredSize(new java.awt.Dimension(779, 644));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -100,13 +100,13 @@ DefaultTableModel vTabela=new DefaultTableModel();
         jLabel4.setText(" Movimentação ");
         jLabel4.setOpaque(true);
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 790, 62);
+        jLabel4.setBounds(0, 0, 770, 60);
 
         lbValor.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lbValor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbValor.setText("Valor:");
         getContentPane().add(lbValor);
-        lbValor.setBounds(40, 250, 70, 29);
+        lbValor.setBounds(430, 250, 60, 29);
 
         bttNovo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/add.png"))); // NOI18N
@@ -117,27 +117,27 @@ DefaultTableModel vTabela=new DefaultTableModel();
             }
         });
         getContentPane().add(bttNovo);
-        bttNovo.setBounds(400, 360, 160, 70);
+        bttNovo.setBounds(390, 330, 160, 70);
 
         lbData.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lbData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbData.setText("Data:");
         getContentPane().add(lbData);
-        lbData.setBounds(40, 190, 60, 30);
+        lbData.setBounds(30, 130, 60, 30);
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Descrição:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(430, 130, 109, 30);
+        jLabel16.setBounds(30, 190, 109, 30);
 
-        txadscrMovmFinanceira.setColumns(20);
-        txadscrMovmFinanceira.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        txadscrMovmFinanceira.setRows(5);
-        jScrollPane1.setViewportView(txadscrMovmFinanceira);
+        txadscrMovimentacao.setColumns(20);
+        txadscrMovimentacao.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txadscrMovimentacao.setRows(5);
+        jScrollPane1.setViewportView(txadscrMovimentacao);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(430, 160, 330, 90);
+        jScrollPane1.setBounds(30, 220, 320, 90);
 
         lbFuncionario.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lbFuncionario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -152,7 +152,7 @@ DefaultTableModel vTabela=new DefaultTableModel();
             }
         });
         getContentPane().add(cmbFuncionario);
-        cmbFuncionario.setBounds(430, 100, 330, 30);
+        cmbFuncionario.setBounds(430, 100, 310, 30);
 
         bttSalvar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/checked.png"))); // NOI18N
@@ -163,13 +163,13 @@ DefaultTableModel vTabela=new DefaultTableModel();
             }
         });
         getContentPane().add(bttSalvar);
-        bttSalvar.setBounds(220, 360, 170, 70);
+        bttSalvar.setBounds(210, 330, 170, 70);
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Tipo Movimentação:");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(10, 70, 240, 30);
+        jLabel22.setBounds(30, 70, 190, 30);
 
         cmbTipoMovimentacao.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         cmbTipoMovimentacao.addActionListener(new java.awt.event.ActionListener() {
@@ -178,21 +178,21 @@ DefaultTableModel vTabela=new DefaultTableModel();
             }
         });
         getContentPane().add(cmbTipoMovimentacao);
-        cmbTipoMovimentacao.setBounds(40, 100, 320, 30);
+        cmbTipoMovimentacao.setBounds(30, 100, 320, 30);
         getContentPane().add(txtidTipoMovm);
-        txtidTipoMovm.setBounds(0, 100, 40, 30);
+        txtidTipoMovm.setBounds(0, 100, 30, 30);
 
-        tblMovmFinanceira.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        tblMovmFinanceira.setModel(vTabela);
-        tblMovmFinanceira.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblMovimentacao.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        tblMovimentacao.setModel(vTabela);
+        tblMovimentacao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblMovmFinanceiraMouseClicked(evt);
+                tblMovimentacaoMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblMovmFinanceira);
+        jScrollPane2.setViewportView(tblMovimentacao);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(40, 440, 520, 190);
+        jScrollPane2.setBounds(30, 410, 520, 190);
 
         bttDeletar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         bttDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
@@ -203,11 +203,11 @@ DefaultTableModel vTabela=new DefaultTableModel();
             }
         });
         getContentPane().add(bttDeletar);
-        bttDeletar.setBounds(580, 550, 180, 70);
+        bttDeletar.setBounds(570, 530, 180, 70);
         getContentPane().add(txtidFuncionario);
-        txtidFuncionario.setBounds(370, 100, 60, 30);
+        txtidFuncionario.setBounds(390, 100, 40, 30);
         getContentPane().add(txtIdMovimentacao);
-        txtIdMovimentacao.setBounds(0, 60, 30, 20);
+        txtIdMovimentacao.setBounds(0, 60, 30, 30);
 
         try {
             txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -216,31 +216,21 @@ DefaultTableModel vTabela=new DefaultTableModel();
         }
         txtData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(txtData);
-        txtData.setBounds(40, 220, 320, 30);
-
-        txtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        txtValor.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(txtValor);
-        txtValor.setBounds(40, 280, 320, 30);
+        txtData.setBounds(30, 160, 320, 30);
 
         lbQuantidade.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lbQuantidade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbQuantidade.setText("Quantidade:");
         getContentPane().add(lbQuantidade);
-        lbQuantidade.setBounds(430, 250, 120, 31);
-
-        txtQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtQuantidade.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(txtQuantidade);
-        txtQuantidade.setBounds(430, 280, 330, 30);
+        lbQuantidade.setBounds(430, 190, 120, 31);
 
         lbProduto.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lbProduto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbProduto.setText("Produto:");
         getContentPane().add(lbProduto);
-        lbProduto.setBounds(40, 130, 80, 30);
+        lbProduto.setBounds(430, 130, 80, 30);
         getContentPane().add(txtidProduto);
-        txtidProduto.setBounds(0, 160, 40, 30);
+        txtidProduto.setBounds(390, 160, 40, 30);
 
         cmbProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +238,11 @@ DefaultTableModel vTabela=new DefaultTableModel();
             }
         });
         getContentPane().add(cmbProduto);
-        cmbProduto.setBounds(40, 160, 320, 30);
+        cmbProduto.setBounds(430, 160, 310, 30);
+        getContentPane().add(txtValor);
+        txtValor.setBounds(430, 280, 310, 30);
+        getContentPane().add(txtQuantidade);
+        txtQuantidade.setBounds(430, 220, 310, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -272,9 +266,12 @@ DefaultTableModel vTabela=new DefaultTableModel();
     }//GEN-LAST:event_cmbFuncionarioActionPerformed
 
     private void bttSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSalvarActionPerformed
-        MovimentacaoFinanceira financeira = new MovimentacaoFinanceira();
-        PerMovimentacao perMovmFinanceira = new PerMovimentacao();
+        Movimentacao movm = new Movimentacao();
+        PerMovimentacao perMovimentacao = new PerMovimentacao();
         if (txtIdMovimentacao.getText().length() == 0) {
+            if(!txtValor.getText().isEmpty()){
+                 txtValor.setText(txtValor.getText().replace(',','.'));
+            }
 
             DateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
            
@@ -288,22 +285,37 @@ DefaultTableModel vTabela=new DefaultTableModel();
               Logger.getLogger(FrmMovimentacaoEstoque.class.getName()).log(Level.SEVERE, null, ex);
           }
          
-            financeira.setDtMovmFinanceira(dataSQL);
-            financeira.setvlMovmFinanceira(Double.parseDouble(txtValor.getText()));
-            financeira.setdscrMovmFinanceira(txadscrMovmFinanceira.getText());
-            financeira.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText()));
-            financeira.setfuncionario(Integer.parseInt(txtidFuncionario.getText()));
+            movm.setDtMovimentacao(dataSQL);
+            movm.setVlMovimentcao(Double.parseDouble(txtValor.getText()));
+            movm.setDscrMovimentacao(txadscrMovimentacao.getText());
+            movm.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText()));
+            movm.setQtdMovimentcao(Integer.parseInt(txtQuantidade.getText()));//nao ta funcionando
+            movm.setFuncionario(Integer.parseInt(txtidFuncionario.getText()));
+            movm.setProduto(Integer.parseInt(txtidProduto.getText()));
 
-            perMovmFinanceira.inserirMovimentacaoFinanceira(financeira);
+            perMovimentacao.inserirMovimentacao(movm);
         } else {
-            financeira.setIdMovmFInanceira(Integer.parseInt(txtIdMovimentacao.getText()));
-            financeira.setDtMovmFinanceira(Date.valueOf(txtData.getText()));
-            financeira.setvlMovmFinanceira(Double.parseDouble(txtValor.getText()));
-            financeira.setdscrMovmFinanceira(txadscrMovmFinanceira.getText());
-            financeira.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText()));
-            financeira.setfuncionario(Integer.parseInt(txtidFuncionario.getText()));
+            if(!txtValor.getText().isEmpty()){
+                 txtValor.setText(txtValor.getText().replace(',','.'));
+            }
+            DateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
+            java.sql.Date dataSQL = null;
+            try {
+                java.util.Date data = dataFormato.parse(txtData.getText());
+                dataSQL = new java.sql.Date(data.getTime());
+            } catch (ParseException ex) {
+                Logger.getLogger(FrmMovimentacaoEstoque.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            movm.setIdMovimentcao(Integer.parseInt(txtIdMovimentacao.getText()));
+            movm.setDtMovimentacao(dataSQL);
+            movm.setVlMovimentcao(Double.parseDouble(txtValor.getText()));
+            movm.setDscrMovimentacao(txadscrMovimentacao.getText());
+            movm.setTipoMovimentacao(Integer.parseInt(txtidTipoMovm.getText()));
+            movm.setQtdMovimentcao(Integer.parseInt(txtQuantidade.getText()));
+            movm.setFuncionario(Integer.parseInt(txtidFuncionario.getText()));
+            movm.setProduto(Integer.parseInt(txtidProduto.getText()));
 
-            perMovmFinanceira.AlterarMovmFinanceira(financeira);
+            perMovimentacao.AlterarMovimentacao(movm);
         }
 
         
@@ -326,6 +338,14 @@ DefaultTableModel vTabela=new DefaultTableModel();
             String linha[] = new String[1];;
             linha[0] = p.getnmTipoMovimentacao();
             cmbTipoMovimentacao.addItem(linha[0]);
+        }
+        
+        PerProduto perProduto = new PerProduto();
+        ArrayList<Produto> produto = perProduto.TodosProdutos();//ArrayList=matriz dinanmica 
+        for (Produto p : produto) {
+            String linha[] = new String[1];;
+            linha[0] = p.getnmProduto();
+            cmbProduto.addItem(linha[0]);
         }
                
         PreencherTabela();
@@ -384,20 +404,29 @@ DefaultTableModel vTabela=new DefaultTableModel();
 
     private void bttDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDeletarActionPerformed
         PerMovimentacao perMovimentacaoFinanceira = new PerMovimentacao();
-        int idMovmFinanceira = Integer.parseInt(vTabela.getValueAt(tblMovmFinanceira.getSelectedRow(), 3) + "");
-        perMovimentacaoFinanceira.deletarMovmFinanceira(idMovmFinanceira);
+        int idMovmFinanceira = Integer.parseInt(vTabela.getValueAt(tblMovimentacao.getSelectedRow(), 3) + "");
+        perMovimentacaoFinanceira.deletarMovimentacao(idMovmFinanceira);
         PreencherTabela();
 
         JOptionPane.showMessageDialog(this, "Registro deletado com sucesso!");
         Limpar();
     }//GEN-LAST:event_bttDeletarActionPerformed
 
-    private void tblMovmFinanceiraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMovmFinanceiraMouseClicked
-        txtData.setText(vTabela.getValueAt(tblMovmFinanceira.getSelectedRow(), 0).toString());
-        txtValor.setText(vTabela.getValueAt(tblMovmFinanceira.getSelectedRow(), 1).toString());
-        txtidTipoMovm.setText(vTabela.getValueAt(tblMovmFinanceira.getSelectedRow(), 2).toString());
-        txtIdMovimentacao.setText(vTabela.getValueAt(tblMovmFinanceira.getSelectedRow(), 3).toString());
-    }//GEN-LAST:event_tblMovmFinanceiraMouseClicked
+    private void tblMovimentacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMovimentacaoMouseClicked
+        txtIdMovimentacao.setText(vTabela.getValueAt(tblMovimentacao.getSelectedRow(), 3).toString());
+        PerMovimentacao perMovimentacao = new PerMovimentacao();
+        Movimentacao consulta = perMovimentacao.ConsultarMovimentacao(Integer.parseInt(txtIdMovimentacao.getText()));
+        DateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
+        txtData.setText(dataFormato.format(consulta.getDtMovimentacao()));
+        txadscrMovimentacao.setText(consulta.getDscrMovimentacao());
+        txtQuantidade.setText(String.valueOf(consulta.getQtdMovimentcao()));
+        txtValor.setText(String.valueOf(consulta.getVlMovimentcao()));
+        txtidFuncionario.setText(String.valueOf(consulta.getFuncionario()));
+        txtidProduto.setText(String.valueOf(consulta.getProduto()));
+        txtidTipoMovm.setText(String.valueOf(consulta.getTipoMovimentacao()));
+        
+        /*falta colocar os valores nas combos*/
+    }//GEN-LAST:event_tblMovimentacaoMouseClicked
 
     private void cmbProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProdutoActionPerformed
         PerProduto perProduto=new PerProduto();
@@ -434,12 +463,12 @@ DefaultTableModel vTabela=new DefaultTableModel();
     private javax.swing.JLabel lbProduto;
     private javax.swing.JLabel lbQuantidade;
     private javax.swing.JLabel lbValor;
-    private javax.swing.JTable tblMovmFinanceira;
-    private javax.swing.JTextArea txadscrMovmFinanceira;
+    private javax.swing.JTable tblMovimentacao;
+    private javax.swing.JTextArea txadscrMovimentacao;
     private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextField txtIdMovimentacao;
-    private javax.swing.JFormattedTextField txtQuantidade;
-    private javax.swing.JFormattedTextField txtValor;
+    private javax.swing.JTextField txtQuantidade;
+    private javax.swing.JTextField txtValor;
     private javax.swing.JTextField txtidFuncionario;
     private javax.swing.JTextField txtidProduto;
     private javax.swing.JTextField txtidTipoMovm;
@@ -448,24 +477,30 @@ DefaultTableModel vTabela=new DefaultTableModel();
     private void Limpar() {
       txtData.setText(null);
       txtValor.setText(null);
-      txadscrMovmFinanceira.setText(null);
+      txadscrMovimentacao.setText(null);
+      txtQuantidade.setText(null);
     }
     
     private void PreencherTabela() {
         vTabela.setRowCount(0);
-        PerMovimentacao perMovmFinanceira = new PerMovimentacao();
-        ArrayList<MovimentacaoFinanceira> classeMovmFinanceira = perMovmFinanceira.TodasMovmFinanceira();
+        PerMovimentacao perMovimentacao = new PerMovimentacao();
+        PerTipoMovimentacao perTipoMovimentacao=new PerTipoMovimentacao();
+        ArrayList<Movimentacao> classeMovm = perMovimentacao.TodasMovimentacao();
 
-        for (MovimentacaoFinanceira m : classeMovmFinanceira) {
+        for (Movimentacao m : classeMovm) {
 
             String linha[] = new String[4];
 
             DateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
 
-            linha[0] = dataFormato.format(m.getDtMovmFinanceira());;
-            linha[1] = String.valueOf(m.getvlMovmFinanceira());
-            linha[2] = String.valueOf(m.getTipoMovimentacao());
-            linha[3] = String.valueOf(m.getIdMovmFInanceira());
+            linha[0] = dataFormato.format(m.getDtMovimentacao());;
+            linha[1] = String.valueOf(m.getVlMovimentcao());
+            
+            TipoMovimentacao tipoMovm = perTipoMovimentacao.ConsultarTipoMovimentacao(Integer.parseInt( String.valueOf(m.getTipoMovimentacao())));
+            String nomeTipoMovm= tipoMovm.getnmTipoMovimentacao();
+
+            linha[2] =nomeTipoMovm;
+            linha[3] = String.valueOf(m.getIdMovimentcao());
             vTabela.addRow(linha);
         }
     
